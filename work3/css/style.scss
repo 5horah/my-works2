@@ -45,6 +45,7 @@ $point-color: #ff6514;
   width: 100%;
   font-family: "Noto Sans KR", sans-serif;
   font-size: 16px;
+}
   .main-text--regular {
     font-weight: $regular;
   }
@@ -63,6 +64,7 @@ $point-color: #ff6514;
     width: 100%;
     display: none;
   }
+  /* //common */
 
   /* header */
   .header {
@@ -90,4 +92,4 @@ $point-color: #ff6514;
   /* //language */
 
   /* //common */
-}
+
