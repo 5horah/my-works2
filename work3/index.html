@@ -28,78 +28,90 @@
       <!-- header  -->
       <header class="header">
         <div class="header__inner">
-          <div class="language display-flex display-flex--between">
-            <ul class="language__list">
-              <li>
-                <a
-                  class="language__item header__button"
-                  href="./index.html"
-                  target="_blank"
-                  >한국/한국어</a
-                >
-              </li>
-              <li>
-                <a
-                  class="language__item header__button"
-                  href="https://www.sulwhasoo.com/int/en/index.html"
-                  target="_blank"
-                  >INTERNATIONAL/ENGLISH</a
-                >
-              </li>
-            </ul>
-          </div>
-          <div class="header__service">
-            <ul class="service__list">
-              <li class="service__item">
-                <a
-                  href="https://www.sulwhasoo.com/kr/ko/misc/store/store.html"
-                  target="_blank"
-                  >매장찾기</a
-                >
-              </li>
-              <li class="service__item">
-                <a
-                  href="https://www.amoremall.com/kr/ko/display/brand/detail?brandSn=18"
-                  target="_blank"
-                  >구매하기</a
-                >
-              </li>
-              <li class="service__item service__item--search">
-                <a href="#search__form-open">
-                  <img src="./images/search.png" alt="검색하기" />
-                </a>
-                <div class="search-wrap">
-                  <form
-                    class="search__form"
-                    action=""
-                    name="search__form"
-                    method="post"
+          <div class="header__first display-flex display-flex--between">
+            <div class="language display-flex display-flex--between">
+              <ul class="language__list">
+                <li>
+                  <a
+                    class="language__item header__button click"
+                    href="./index.html"
+                    target="_blank"
+                    >한국/한국어</a
                   >
-                    <input
-                      class="search__blank"
-                      type="text"
-                      name="search__blank"
-                      placeholder="검색어를 입력해주세요"
-                    />
-                    <button class="search__button" type="submit">검색</button>
-                    <a class="search__end" href="#search__form-close">닫기</a>
-                  </form>
+                </li>
+                <li class="blind">
+                  <a
+                    class="language__item header__button"
+                    href="https://www.sulwhasoo.com/int/en/index.html"
+                    target="_blank"
+                    >INTERNATIONAL/ENGLISH</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="header__logo">
+              <a href="./index.html">
+                <div class="main-image">
+                  <img src="./images/logo.png" alt="sulwhasoo" />
                 </div>
-              </li>
-            </ul>
-          </div>
-          <div class="header__logo">
-            <a href="./index.html">
-              <img src="./images/logo.png" alt="sulwhasoo" />
-              <h1 class="blind">sulwhasoo</h1>
-            </a>
+                <h1 class="blind">sulwhasoo</h1>
+              </a>
+            </div>
+            <div class="header__service">
+              <ul class="service__list display-flex display-flex--between">
+                <li>
+                  <a
+                    class="service__item header__button"
+                    href="https://www.sulwhasoo.com/kr/ko/misc/store/store.html"
+                    target="_blank"
+                    >매장찾기</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="service__item header__button"
+                    href="https://www.amoremall.com/kr/ko/display/brand/detail?brandSn=18"
+                    target="_blank"
+                    >구매하기</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="service__item service__item--search header__button"
+                    href="#search__form-open"
+                  >
+                    <div class="main-image">
+                      <img src="./images/search.png" alt="검색하기" />
+                    </div>
+                  </a>
+                  <div class="search-wrap blind">
+                    <form
+                      class="search__form"
+                      action=""
+                      name="search__form"
+                      method="post"
+                    >
+                      <input
+                        class="search__blank"
+                        type="text"
+                        name="search__blank"
+                        placeholder="검색어를 입력해주세요"
+                      />
+                      <button class="search__button" type="submit">검색</button>
+                      <a class="search__end" href="#search__form-close">닫기</a>
+                    </form>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </div>
           <nav class="nav" id="gnb">
             <h2 class="blind">네비게이션 영역</h2>
-            <ul class="nav__menu">
+            <ul class="nav__menu display-flex display-flex--between">
               <li class="nav__item">
                 <h3>
                   <a
+                    class="header__button nav__button"
                     href="https://www.sulwhasoo.com/kr/ko/about/brand-belief/brand-belief.html"
                   >
                     브랜드 빌리프
@@ -132,6 +144,7 @@
               <li class="nav__item">
                 <h3>
                   <a
+                    class="header__button nav__button"
                     href="https://www.sulwhasoo.com/kr/ko/best/best_seller.html"
                   >
                     베스트셀러
@@ -141,6 +154,7 @@
               <li class="nav__item">
                 <h3>
                   <a
+                    class="header__button nav__button"
                     href="https://www.sulwhasoo.com/kr/ko/products/skin_care/skin_care.html"
                   >
                     제품
@@ -180,6 +194,7 @@
               <li class="nav__item">
                 <h3>
                   <a
+                    class="header__button nav__button"
                     href="https://www.sulwhasoo.com/kr/ko/experience/archive/archive.html"
                   >
                     설화수 포스트
@@ -226,6 +241,7 @@
               <li class="nav__item">
                 <h3>
                   <a
+                    class="header__button nav__button"
                     href="https://www.sulwhasoo.com/kr/ko/spa/introduction/introduction.html"
                   >
                     스파
@@ -265,6 +281,7 @@
               <li class="nav__item">
                 <h3>
                   <a
+                    class="header__button nav__button"
                     href="https://www.sulwhasoo.com/kr/ko/flagship/intro/index.html"
                   >
                     플래그십 스토어
@@ -295,23 +312,27 @@
 
       <!-- visual -->
       <div class="main-visual">
-        <div class="direction">
-          <a href="#right" class="direction__button direction__button--right">
-            <span class="blind">오른쪽</span>
-          </a>
+        <div class="direction display-flex display-flex--between">
           <a href="#left" class="direction__button direction__button--left">
             <span class="blind">왼쪽</span>
           </a>
+          <a href="#right" class="direction__button direction__button--right">
+            <span class="blind">오른쪽</span>
+          </a>
         </div>
         <div class="visual__content visual__content--first">
-          <img class="content__image" src="./images/visual01.png" alt="" />
+          <div class="main-image main-image--visual-image">
+            <img src="./images/visual01.png" alt="" />
+          </div>
           <p class="content__en-text">
             SULWHASOO FIRST CARE ACTIVATING SERUM BAEKJA EDITION
           </p>
           <p class="content__kr-text">윤조에센스 백자에디션</p>
         </div>
         <div class="visual__content visual__content--second">
-          <img class="content__image" src="./images/visual02.png" alt="" />
+          <div class="main-image main-image--visual-image">
+            <img src="./images/visual01.png" alt="" />
+          </div>
           <p class="content__en-text">SULWHASOO TRIPLE CARE</p>
           <p class="content__kr-text">설화수 트리플 케어</p>
         </div>
@@ -336,16 +357,16 @@
               <div class="container">
                 <div class="direction">
                   <a
-                    href="#right"
-                    class="direction__button direction__button--right"
-                  >
-                    <span class="blind">오른쪽</span>
-                  </a>
-                  <a
                     href="#left"
                     class="direction__button direction__button--left"
                   >
                     <span class="blind">왼쪽</span>
+                  </a>
+                  <a
+                    href="#right"
+                    class="direction__button direction__button--right"
+                  >
+                    <span class="blind">오른쪽</span>
                   </a>
                 </div>
                 <ul class="gallery">
@@ -675,7 +696,7 @@
                 사이트맵
               </a>
             </li>
-            
+
             <li class="site-map__item">
               <a
                 href="https://www.apgroup.com/int/ko/about-us/about-us.html"
