@@ -133,7 +133,7 @@ a {
   z-index: 100;
 
   &__inner {
-    max-width: 1440px;
+    max-width: vw(1440);
     margin: 0 auto;
   }
 
@@ -286,9 +286,10 @@ a {
 .direction {
   position: absolute;
   width: 100%;
-  top: vw(303);
+  top: 0;
   left: 0;
   z-index: 90;
+  margin-top: vw(303);
   &__button {
     display: block;
     background: rgba(255, 255, 255, 0.4);
@@ -338,3 +339,27 @@ a {
 }
 /* //dock */
 /* //visual */
+
+/* content */
+.main-content__inner {
+  max-width: vw(1440);
+  margin: 0 auto;
+}
+.main-section {
+  &__title {
+    text-align: left;
+    font-size: vw(28);
+    font-weight: $medium;
+    letter-spacing: -0.025em;
+    margin-top: vw(121);
+    margin-left: vw(-1);
+  }
+  /* recommond */
+  &--recommond {
+    .direction {
+      margin-top: vw(222);
+    }
+  }
+}
+/* //recommond */
+/* //content */
