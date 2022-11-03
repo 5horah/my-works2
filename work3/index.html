@@ -311,7 +311,7 @@
 
       <!-- visual -->
       <div class="visual">
-        <div class="direction display-flex display-flex--between">
+        <div class="direction">
           <a href="#left" class="direction__button direction__button--left">
             <span class="blind">왼쪽</span>
           </a>
@@ -339,11 +339,18 @@
             <p class="visual-text visual-text--kr">설화수 트리플 케어</p>
           </div>
         </div>
-        <div class="dock display-flex">
+        <div class="dock display-flex flex-item-center">
           <div class="bar">
             <span class="bar__stage"></span>
           </div>
-          <span class="play"></span>
+          <div class="play-button">
+            <button class="play-on now-state">
+              <span class="blind">자동재생</span>
+            </button>
+            <button class="play-pause">
+              <span class="blind">일시정지</span>
+            </button>
+          </div>
         </div>
       </div>
       <!-- //visual -->
@@ -359,7 +366,7 @@
             </div>
             <div class="main-section__body">
               <div class="container">
-                <div class="direction display-flex display-flex--between">
+                <div class="direction">
                   <a
                     href="#left"
                     class="direction__button direction__button--left"
@@ -373,14 +380,14 @@
                     <span class="blind">오른쪽</span>
                   </a>
                 </div>
-                <ul class="gallery display-flex display-flex--between">
+                <ul class="gallery">
                   <li class="gallery__item">
                     <div class="main-image">
                       <img src="./images/recommond_gallery01.jpg" alt="" />
                     </div>
                     <div class="main-text-wrap">
-                      <p class="main-text main-text__title-kr">윤조에센스</p>
-                      <p class="main-text main-text__title-en">
+                      <p class="main-text main-text__product-kr">윤조에센스</p>
+                      <p class="main-text main-text__product-en">
                         First Care Activating Serum
                       </p>
                       <p class="main-text main-text__price">140,000원</p>
@@ -391,8 +398,8 @@
                       <img src="./images/recommond_gallery02.jpg" alt="" />
                     </div>
                     <div class="main-text-wrap">
-                      <p class="main-text main-text__title-kr">자음생크림</p>
-                      <p class="main-text main-text__title-en">
+                      <p class="main-text main-text__product-kr">자음생크림</p>
+                      <p class="main-text main-text__product-en">
                         Concentrated Ginseng Renewing Cream EX
                       </p>
                       <p class="main-text main-text__price">270,000원</p>
@@ -403,18 +410,28 @@
                       <img src="./images/recommond_gallery02.jpg" alt="" />
                     </div>
                     <div class="main-text-wrap">
-                      <p class="main-text main-text__title-kr">자음생세럼</p>
-                      <p class="main-text main-text__title-en">
+                      <p class="main-text main-text__product-kr">자음생세럼</p>
+                      <p class="main-text main-text__product-en">
                         Concentrated Ginseng Renewing Serum EX
                       </p>
                       <p class="main-text main-text__price">220,000원</p>
                     </div>
                   </li>
                 </ul>
-                <div class="dock">
-                  <span class="dock__bar dock__bar--stage"></span>
-                  <span class="dock__bar"></span>
-                  <span class="dock__play"></span>
+                <div
+                  class="dock display-flex flex-item-center display-flex--center"
+                >
+                  <div class="bar">
+                    <span class="bar__stage"></span>
+                  </div>
+                  <div class="play-button">
+                    <button class="play-on now-state">
+                      <span class="blind">자동재생</span>
+                    </button>
+                    <button class="play-pause">
+                      <span class="blind">일시정지</span>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -429,12 +446,13 @@
                 건강하게 빛나고 힘 있게 채우는<br />
                 설화수의 시그니처 케어
               </p>
+              <a
+                class="more-button"
+                href="https://www.sulwhasoo.com/kr/ko/best/best_seller.html"
+                ><span class="main-text main-text--more">자세히 보기</span></a
+              >
             </div>
             <div class="main-section__body">
-              <a
-                class="main-button"
-                href="https://www.sulwhasoo.com/kr/ko/best/best_seller.html"
-              ></a>
               <div class="main-image main-image--bg">
                 <img src="./images/best_bg.jpg" alt="" />
               </div>
@@ -451,16 +469,16 @@
               <div class="container">
                 <div class="direction">
                   <a
-                    href="#right"
-                    class="direction__button direction__button--right"
-                  >
-                    <span class="blind">오른쪽</span>
-                  </a>
-                  <a
                     href="#left"
                     class="direction__button direction__button--left"
                   >
                     <span class="blind">왼쪽</span>
+                  </a>
+                  <a
+                    href="#right"
+                    class="direction__button direction__button--right"
+                  >
+                    <span class="blind">오른쪽</span>
                   </a>
                 </div>
                 <ul class="gallery">
@@ -469,19 +487,19 @@
                       <img src="./images/season_gallery01.jpg" alt="" />
                     </div>
                     <div class="main-text-wrap">
-                      <p class="main-text main-text__title-kr">자음생세럼</p>
-                      <p class="main-text main-text__title-en">
+                      <p class="main-text main-text__product-kr">자음생세럼</p>
+                      <p class="main-text main-text__product-en">
                         Concentrated Ginseng Renewing Serum EX
                       </p>
                       <p class="main-text main-text__price">220,000원</p>
                     </div>
                   </li>
-                  <li class="gallery__item">
+                  <li class="gallery__item gallery__item--center">
                     <div class="main-image">
                       <img src="./images/season_gallery02.jpg" alt="" />
                     </div>
                     <div class="main-text-wrap">
-                      <p class="main-text main-text__title-kr">자음생 듀오</p>
+                      <p class="main-text main-text__product-kr">자음생 듀오</p>
                       <p class="main-text main-text__description">
                         안티에이징의 결정체, 진세노믹스<sup>™</sup><br />
                         자음생듀오로 피부 자생력을 키워주세요.
@@ -493,18 +511,28 @@
                       <img src="./images/season_gallery03.jpg" alt="" />
                     </div>
                     <div class="main-text-wrap">
-                      <p class="main-text main-text__title-kr">자음생크림</p>
-                      <p class="main-text main-text__title-en">
+                      <p class="main-text main-text__product-kr">자음생크림</p>
+                      <p class="main-text main-text__product-en">
                         Concentrated Ginseng Renewing Cream EX
                       </p>
                       <p class="main-text main-text__price">270,000원</p>
                     </div>
                   </li>
                 </ul>
-                <div class="dock">
-                  <span class="dock__bar dock__bar--description"></span>
-                  <span class="dock__bar"></span>
-                  <span class="dock__play"></span>
+                <div
+                  class="dock display-flex flex-item-center display-flex--center"
+                >
+                  <div class="bar">
+                    <span class="bar__stage"></span>
+                  </div>
+                  <div class="play-button">
+                    <button class="play-on now-state">
+                      <span class="blind">자동재생</span>
+                    </button>
+                    <button class="play-pause">
+                      <span class="blind">일시정지</span>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -526,22 +554,26 @@
                     마이 지함보 포장서비스
                   </p>
                   <a
-                    class="main-button"
+                    class="more-button"
                     href="https://www.sulwhasoo.com/kr/ko/experience/archive/best/20210105.html"
-                    >자세히 보기</a
+                    ><span class="main-text main-text--more"
+                      >자세히 보기</span
+                    ></a
                   >
                 </li>
                 <li class="gallery__item">
                   <div class="main-image">
-                    <img src="./images/service_gallery01.jpg" alt="" />
+                    <img src="./images/service_gallery02.jpg" alt="" />
                   </div>
                   <p class="main-text main-text--title-kr">
                     설화수 북촌 플래그십 스토어
                   </p>
                   <a
-                    class="main-button"
+                    class="more-button"
                     href="https://www.sulwhasoo.com/kr/ko/flagship/bukchon/index.html"
-                    >자세히 보기</a
+                    ><span class="main-text main-text--more"
+                      >자세히 보기</span
+                    ></a
                   >
                 </li>
               </ul>
@@ -558,16 +590,16 @@
               <div class="container">
                 <div class="direction">
                   <a
-                    href="#right"
-                    class="direction__button direction__button--right"
-                  >
-                    <span class="blind">오른쪽</span>
-                  </a>
-                  <a
                     href="#left"
                     class="direction__button direction__button--left"
                   >
                     <span class="blind">왼쪽</span>
+                  </a>
+                  <a
+                    href="#right"
+                    class="direction__button direction__button--right"
+                  >
+                    <span class="blind">오른쪽</span>
                   </a>
                 </div>
                 <ul class="gallery">
@@ -651,120 +683,122 @@
       <!-- footer -->
       <footer class="footer">
         <div class="footer__menu">
-          <ul class="site-map">
-            <li class="site-map__item">
-              <a
-                href="https://www.apgroup.com/int/ko/about-us/about-us.html"
-                target="_blank"
-              >
-                회사소개
-              </a>
-            </li>
-            <li class="site-map__item">
-              <a
-                href="https://www.amoremall.com/kr/ko/beautypoint/footer/agreement.do"
-                target="_blank"
-              >
-                서비스이용약관
-              </a>
-            </li>
-            <li class="site-map__item">
-              <a
-                href="https://www.sulwhasoo.com/kr/ko/misc/ugc-terms-and-conditions/ugc-terms-and-conditions.html"
-                target="_blank"
-              >
-                UGC이용약관
-              </a>
-            </li>
-            <li class="site-map__item">
-              <a
-                href="https://www.amoremall.com/kr/ko/beautypoint/footer/privacy.do"
-                target="_blank"
-              >
-                개인정보처리방침
-              </a>
-            </li>
-            <li class="site-map__item">
-              <a
-                href="https://www.apgroup.com/int/ko/misc/cctv-policies-and-procedures/cctv-policies-and-procedures.html"
-                target="_blank"
-              >
-                영상정보처리방침
-              </a>
-            </li>
-            <li class="site-map__item">
-              <a
-                href="https://www.sulwhasoo.com/kr/ko/misc/sitemap/sitemap.html"
-                target="_blank"
-              >
-                사이트맵
-              </a>
-            </li>
+          <div class="inner display-flex display-flex--between">
+            <ul class="site-map display-flex">
+              <li class="site-map__item">
+                <a
+                  href="https://www.apgroup.com/int/ko/about-us/about-us.html"
+                  target="_blank"
+                >
+                  회사소개
+                </a>
+              </li>
+              <li class="site-map__item">
+                <a
+                  href="https://www.amoremall.com/kr/ko/beautypoint/footer/agreement.do"
+                  target="_blank"
+                >
+                  서비스이용약관
+                </a>
+              </li>
+              <li class="site-map__item">
+                <a
+                  href="https://www.sulwhasoo.com/kr/ko/misc/ugc-terms-and-conditions/ugc-terms-and-conditions.html"
+                  target="_blank"
+                >
+                  UGC이용약관
+                </a>
+              </li>
+              <li class="site-map__item">
+                <a
+                  href="https://www.amoremall.com/kr/ko/beautypoint/footer/privacy.do"
+                  target="_blank"
+                >
+                  개인정보처리방침
+                </a>
+              </li>
+              <li class="site-map__item">
+                <a
+                  href="https://www.apgroup.com/int/ko/misc/cctv-policies-and-procedures/cctv-policies-and-procedures.html"
+                  target="_blank"
+                >
+                  영상정보처리방침
+                </a>
+              </li>
+              <li class="site-map__item">
+                <a
+                  href="https://www.sulwhasoo.com/kr/ko/misc/sitemap/sitemap.html"
+                  target="_blank"
+                >
+                  사이트맵
+                </a>
+              </li>
 
-            <li class="site-map__item">
-              <a
-                href="https://www.apgroup.com/int/ko/about-us/about-us.html"
-                target="_blank"
-              >
-                로그인
-              </a>
-            </li>
-          </ul>
-          <ul class="link">
-            <li class="link__item">
-              <a
-                href="https://www.apgroup.com/int/ko/about-us/about-us.html"
-                target="_blank"
-              >
-                <div class="common-image">
-                  <img
-                    src="./images/footer_icon01.jpg"
-                    alt="웹접근성 인증 마크"
-                  />
-                </div>
-              </a>
-            </li>
-            <li class="link__item">
-              <a
-                href="https://www.apgroup.com/int/ko/about-us/about-us.html"
-                target="_blank"
-              >
-                <div class="common-image">
-                  <img src="./images/footer_icon02.jpg" alt="페이스북" />
-                </div>
-              </a>
-            </li>
-            <li class="link__item">
-              <a
-                href="https://www.apgroup.com/int/ko/about-us/about-us.html"
-                target="_blank"
-              >
-                <div class="common-image">
-                  <img src="./images/footer_icon03.jpg" alt="인스타그램" />
-                </div>
-              </a>
-            </li>
-            <li class="link__item">
-              <a
-                href="https://www.apgroup.com/int/ko/about-us/about-us.html"
-                target="_blank"
-              >
-                <div class="common-image">
-                  <img src="./images/footer_icon04.jpg" alt="유튜브" />
-                </div>
-              </a>
-            </li>
-            <li class="link__item">
-              <a
-                href="https://www.apgroup.com/int/ko/about-us/about-us.html"
-                target="_blank"
-              >
-                <div class="common-image">
-                  <img src="./images/footer_icon05.jpg" alt="카카오채널" />
-                </div>
-              </a>
-            </li>
-          </ul>
+              <li class="site-map__item">
+                <a
+                  href="https://www.apgroup.com/int/ko/about-us/about-us.html"
+                  target="_blank"
+                >
+                  로그인
+                </a>
+              </li>
+            </ul>
+            <ul class="link display-flex">
+              <li class="link__item">
+                <a
+                  href="https://www.apgroup.com/int/ko/about-us/about-us.html"
+                  target="_blank"
+                >
+                  <div class="common-image">
+                    <img
+                      src="./images/footer_icon01.jpg"
+                      alt="웹접근성 인증 마크"
+                    />
+                  </div>
+                </a>
+              </li>
+              <li class="link__item">
+                <a
+                  href="https://www.apgroup.com/int/ko/about-us/about-us.html"
+                  target="_blank"
+                >
+                  <div class="common-image">
+                    <img src="./images/footer_icon02.jpg" alt="페이스북" />
+                  </div>
+                </a>
+              </li>
+              <li class="link__item">
+                <a
+                  href="https://www.apgroup.com/int/ko/about-us/about-us.html"
+                  target="_blank"
+                >
+                  <div class="common-image">
+                    <img src="./images/footer_icon03.jpg" alt="인스타그램" />
+                  </div>
+                </a>
+              </li>
+              <li class="link__item">
+                <a
+                  href="https://www.apgroup.com/int/ko/about-us/about-us.html"
+                  target="_blank"
+                >
+                  <div class="common-image">
+                    <img src="./images/footer_icon04.jpg" alt="유튜브" />
+                  </div>
+                </a>
+              </li>
+              <li class="link__item">
+                <a
+                  href="https://www.apgroup.com/int/ko/about-us/about-us.html"
+                  target="_blank"
+                >
+                  <div class="common-image">
+                    <img src="./images/footer_icon05.jpg" alt="카카오채널" />
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
         <div class="footer__information">
           <p class="information__adress">

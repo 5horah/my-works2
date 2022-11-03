@@ -121,4 +121,9 @@ img {
   vertical-align: top;
   max-width: 100%;
 }
+button{
+  border: none;
+  padding: 0;
+  background-color: transparent;
+}
 /*//reset*/
