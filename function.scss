@@ -1,0 +1,12 @@
+/* vw계산 함수 ()*/
+$view-point: 1920;
+
+@function remove-unit($value) {
+  @return ($value / ($value * 0 + 1));
+}
+@function rem($px, $base: 16) {
+  @return (remove-unit($px / $base)) * 1rem;
+}
+@function vw($px, $base: $view-point) {
+  @return (remove-unit($px * 100 / $base)) * 1vw;
+}

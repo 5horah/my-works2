@@ -7,16 +7,6 @@ $regular: 400;
 $medium: 500;
 $point-color: #ff6514;
 
-@function remove-unit($value) {
-  @return ($value / ($value * 0 + 1));
-}
-@function rem($px, $base: 16) {
-  @return (remove-unit($px / $base)) * 1rem;
-}
-@function vw($px, $base: $view-point) {
-  @return (remove-unit($px * 100 / $base)) * 1vw;
-}
-
 /* dlt */
 .dlt {
   // display: none;
