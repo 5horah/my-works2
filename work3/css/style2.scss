@@ -6,3 +6,99 @@ $regular: 400;
 $regular: 400;
 $medium: 500;
 $point-color: #ff6514;
+
+/* dlt */
+.dlt {
+  // display: none;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: -10;
+  img {
+    display: block;
+    margin: 0 auto;
+  }
+}
+.body {
+  opacity: 0.5;
+  position: relative;
+}
+.main {
+  position: relative;
+}
+/* //dlt */
+
+/* S:skip-nav */
+.skip-nav {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  z-index: 100;
+  &__button {
+    line-height: 0.5;
+    text-align: center;
+    color: #fff;
+    display: block;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+    -webkit-clip-path: inset(50%);
+    clip-path: inset(50%);
+    background: $point-color;
+    &:hover,
+    &:focus,
+    &:active {
+      width: 100%;
+      height: 10px;
+      margin: 0px;
+      padding: 10px 0;
+      clip: auto;
+      -webkit-clip-path: inset(0%);
+      clip-path: inset(0%);
+    }
+  }
+}
+/* E:skip-nav */
+
+/* S:common */
+.main-wrap {
+  width: 100%;
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 16px;
+  text-align: center;
+  color: #000;
+
+  img {
+    display: block;
+    margin: 0 auto;
+  }
+
+  a {
+    display: block;
+  }
+
+  sup {
+    position: relative;
+    top: 0.4em;
+  }
+
+  .blind {
+    position: absolute !important;
+    overflow: hidden !important;
+    width: 1px !important;
+    height: 1px !important;
+    margin: -1px !important;
+    padding: 0 !important;
+    border: 0 !important;
+    clip: rect(1px, 1px, 1px, 1px);
+    -webkit-clip-path: inset(50%);
+    clip-path: inset(50%);
+  }
+
+  //
+}
+/* E:common */
