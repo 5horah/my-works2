@@ -29,7 +29,7 @@
             <div class="logo-area">
               <h1>
                 <!-- ::before로 이미지 삽입 -->
-                <a href="/" class="logo__top"
+                <a href="/" class="logo"
                   ><span class="blind">sulwhasoo</span></a
                 >
               </h1>
@@ -73,7 +73,20 @@
                   target="_blank"
                   >구매하기</a
                 >
-                <div class="search-box"></div>
+                <div class="search-box">
+                  <div class="search__inner">
+                    <input type="search" class="search__input" />
+
+                    <input type="text" id="main-search" class="search__input" />
+                    <!--focus시 .search__input--extend 클래스를
+                    추가합니다-->
+                    <input
+                      type="submit"
+                      class="search__button"
+                      value="Search"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
             <div class="gnb-area"></div>
