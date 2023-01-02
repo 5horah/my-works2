@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./css/style2.css" />
   </head>
   <body>
-    <div class="main-wrap">
+    <div class="main">
       <div class="dlt">
         <img src="./images/1.jpg" alt="" />
       </div>
@@ -22,24 +22,16 @@
       </div>
       <!-- //skip-nav -->
 
-      <main>
+      <main class="main">
         <!-- S:header  -->
-        <header>
+        <header class="header">
           <div class="header__inner">
-            <div class="logo-area">
-              <h1>
-                <!-- ::before로 이미지 삽입 -->
-                <a href="/" class="logo"
-                  ><span class="blind">sulwhasoo</span></a
-                >
-              </h1>
-            </div>
-            <div class="sta-area">
+            <div class="top-area">
               <div class="language-box">
                 <a href="#kr" role="button" class="language__select"
                   >한국/한국어</a
                 >
-                <ul class="language__list">
+                <ul class="language__list click">
                   <li class="language__item">
                     <a
                       class="language__link click"
@@ -58,25 +50,32 @@
                   </li>
                 </ul>
               </div>
+              <div class="logo-box">
+                <h1>
+                  <!-- ::before로 이미지 삽입 -->
+                  <a href="/" class="logo"
+                    ><span class="blind">sulwhasoo</span></a
+                  >
+                </h1>
+              </div>
               <div class="service-box">
                 <a
-                  class="service__location"
+                  class="service-text service-text__location"
                   href="https://www.sulwhasoo.com/kr/ko/misc/store/store.html"
                   role="button"
                   target="_blank"
                   >매장찾기</a
                 >
                 <a
-                  class="service__buy"
+                  class="service-text service-text__buy"
                   href="https://www.amoremall.com/kr/ko/display/brand/detail?brandSn=18"
                   role="button"
                   target="_blank"
                   >구매하기</a
                 >
-                <div class="search-box">
-                  <input type="search" class="search__input" />
-                  <div class="search__inner"></div>
-                </div>
+                <a href="#search" class="search"
+                  ><span class="blind">검색하기</span></a
+                >
               </div>
             </div>
             <div class="gnb-area">
@@ -84,6 +83,7 @@
                 <li class="gnb__item">
                   <h3>
                     <a
+                      class="gnb-text"
                       href="https://www.sulwhasoo.com/kr/ko/about/brand-belief/brand-belief.html"
                     >
                       브랜드 빌리프
@@ -92,6 +92,7 @@
                   <ul class="gnb-sub">
                     <li class="gnb-sub__item">
                       <a
+                        class="gnb-text gnb-text--sub"
                         href="https://www.sulwhasoo.com/kr/ko/about/brand-belief/brand-belief.html"
                       >
                         브랜드 빌리프
@@ -99,6 +100,7 @@
                     </li>
                     <li class="gnb-sub__item">
                       <a
+                        class="gnb-text gnb-text--sub"
                         href="https://www.sulwhasoo.com/kr/ko/about/beauty-grows-campaign/beauty-grows-campaign.html"
                       >
                         브랜드 캠페인
@@ -106,6 +108,7 @@
                     </li>
                     <li class="gnb-sub__item">
                       <a
+                        class="gnb-text gnb-text--sub"
                         href="https://www.sulwhasoo.com/kr/ko/about/beauty-from-culture/beauty-from-culture-2020/beauty-from-culture-2020.html"
                       >
                         뷰티 프롬 컬처
@@ -116,6 +119,7 @@
                 <li class="gnb__item">
                   <h3>
                     <a
+                      class="gnb-text"
                       href="https://www.sulwhasoo.com/kr/ko/best/best_seller.html"
                     >
                       베스트셀러
@@ -125,7 +129,7 @@
                 <li class="gnb__item">
                   <h3>
                     <a
-                      class="header-text nav__button"
+                      class="gnb-text"
                       href="https://www.sulwhasoo.com/kr/ko/products/skin_care/skin_care.html"
                     >
                       제품
@@ -134,6 +138,7 @@
                   <ul class="nav__sub-menu">
                     <li class="gnb-sub__item">
                       <a
+                        class="gnb-text gnb-text--sub"
                         href="https://www.sulwhasoo.com/kr/ko/products/skin_care/skin_care.html"
                       >
                         스킨케어
@@ -141,6 +146,7 @@
                     </li>
                     <li class="gnb-sub__item">
                       <a
+                        class="gnb-text gnb-text--sub"
                         href="https://www.sulwhasoo.com/kr/ko/products/make_up/make_up.html"
                       >
                         메이크업
@@ -148,6 +154,7 @@
                     </li>
                     <li class="gnb-sub__item">
                       <a
+                        class="gnb-text gnb-text--sub"
                         href="https://www.sulwhasoo.com/kr/ko/products/men/men.html"
                       >
                         남성
@@ -155,6 +162,7 @@
                     </li>
                     <li class="gnb-sub__item">
                       <a
+                        class="gnb-text gnb-text--sub"
                         href="https://www.sulwhasoo.com/kr/ko/products/timetreasure-honorstige-collection/timetreasure-honorstige-collection.html"
                       >
                         진설
@@ -165,7 +173,7 @@
                 <li class="gnb__item">
                   <h3>
                     <a
-                      class="header-text nav__button"
+                      class="gnb-text"
                       href="https://www.sulwhasoo.com/kr/ko/experience/archive/archive.html"
                     >
                       설화수 포스트
@@ -174,6 +182,7 @@
                   <ul class="gnb-sub">
                     <li class="gnb-sub__item">
                       <a
+                        class="gnb-text gnb-text--sub"
                         href="https://www.sulwhasoo.com/kr/ko/experience/archive/archive.html"
                       >
                         설화수 포스트
@@ -181,6 +190,7 @@
                     </li>
                     <li class="gnb-sub__item">
                       <a
+                        class="gnb-text gnb-text--sub"
                         href="https://www.sulwhasoo.com/kr/ko/experience/classicluxuryset/classicluxuryset.html"
                       >
                         명작컬렉션
@@ -188,6 +198,7 @@
                     </li>
                     <li class="gnb-sub__item">
                       <a
+                        class="gnb-text gnb-text--sub"
                         href="https://www.sulwhasoo.com/kr/ko/experience/sulhwasoo_style/sulwhasoo_style.html"
                       >
                         설화수 스타일
@@ -195,6 +206,7 @@
                     </li>
                     <li class="gnb-sub__item">
                       <a
+                        class="gnb-text gnb-text--sub"
                         href="https://www.sulwhasoo.com/kr/ko/experience/culture/culture.html"
                       >
                         설화문화전
@@ -202,6 +214,7 @@
                     </li>
                     <li class="gnb-sub__item">
                       <a
+                        class="gnb-text gnb-text--sub"
                         href="https://www.sulwhasoo.com/kr/ko/experience/magazine/magazine.html"
                       >
                         설화매거진
@@ -212,7 +225,7 @@
                 <li class="gnb__item">
                   <h3>
                     <a
-                      class="header-text nav__button"
+                      class="gnb-text"
                       href="https://www.sulwhasoo.com/kr/ko/spa/introduction/introduction.html"
                     >
                       스파
@@ -221,6 +234,7 @@
                   <ul class="gnb-sub">
                     <li class="gnb-sub__item">
                       <a
+                        class="gnb-text gnb-text--sub"
                         href="https://www.sulwhasoo.com/kr/ko/spa/introduction/introduction.html"
                       >
                         소개
@@ -228,6 +242,7 @@
                     </li>
                     <li class="gnb-sub__item">
                       <a
+                        class="gnb-text gnb-text--sub"
                         href="https://www.sulwhasoo.com/kr/ko/spa/programs/programs.html"
                       >
                         스파 프로그램
@@ -235,6 +250,7 @@
                     </li>
                     <li class="gnb-sub__item">
                       <a
+                        class="gnb-text gnb-text--sub"
                         href="https://www.sulwhasoo.com/kr/ko/spa/reservation/reservation.html"
                       >
                         예약
@@ -242,6 +258,7 @@
                     </li>
                     <li class="gnb-sub__item">
                       <a
+                        class="gnb-text gnb-text--sub"
                         href="https://www.sulwhasoo.com/kr/ko/spa/location/location.html"
                       >
                         매장 찾기
@@ -252,7 +269,7 @@
                 <li class="gnb__item">
                   <h3>
                     <a
-                      class="header-text nav__button"
+                      class="gnb-text"
                       href="https://www.sulwhasoo.com/kr/ko/flagship/intro/index.html"
                     >
                       플래그십 스토어
@@ -261,6 +278,7 @@
                   <ul class="gnb-sub">
                     <li class="gnb-sub__item">
                       <a
+                        class="gnb-text gnb-text--sub"
                         href="https://www.sulwhasoo.com/kr/ko/flagship/bukchon/index.html"
                       >
                         설화수 북촌
@@ -268,6 +286,7 @@
                     </li>
                     <li class="gnb-sub__item">
                       <a
+                        class="gnb-text gnb-text--sub"
                         href="https://www.sulwhasoo.com/kr/ko/flagship/dosan/index.html"
                       >
                         설화수 도산
@@ -283,16 +302,8 @@
 
         <!-- S:visual -->
         <div class="visual">
-          <div class="direction">
-            <a href="#left" class="direction__btn direction__btn--left">
-              <span class="blind">왼쪽</span>
-            </a>
-            <a href="#right" class="direction__btn direction__btn--right">
-              <span class="blind">오른쪽</span>
-            </a>
-          </div>
           <div class="container container--01">
-            <div class="container-img">
+            <div class="main-image">
               <img src="./images/visual01.png" alt="" />
             </div>
             <div class="container-txt-box">
@@ -305,7 +316,7 @@
             </div>
           </div>
           <div class="container container--02 blind">
-            <div class="container-img">
+            <div class="main-image">
               <img src="./images/visual02.png" alt="" />
             </div>
             <div class="container-txt-box">
@@ -316,25 +327,32 @@
             </div>
           </div>
           <div class="dock">
-            <div class="bar">
-              <span class="bar__stage"></span>
+            <div class="dock-bar">
+              <span class="dock-bar__stage"></span>
             </div>
-            <div class="play-btn-box">
-              <button class="play-btn play-btn--auto now">
+            <div class="dock-btn-box">
+              <button class="dock-btn dock-btn--auto now">
                 <span class="blind">자동재생</span>
               </button>
-              <button class="play-btn play-btn--pause">
+              <button class="dock-btn dock-btn--pause">
                 <span class="blind">일시정지</span>
               </button>
             </div>
           </div>
+          <div class="direction">
+            <a href="#left" class="direction-btn direction-btn--left">
+              <span class="blind">왼쪽</span>
+            </a>
+            <a href="#right" class="direction-btn direction-btn--right">
+              <span class="blind">오른쪽</span>
+            </a>
+          </div>
         </div>
         <!-- E:visual -->
 
-        <!-- S:main -->
-        <article class="main">
+        <article class="main-section-wrap">
           <h2 class="blind">본문 영역</h2>
-          <div class="main__inner">
+          <div class="main-section__inner">
             <!-- S:recommond -->
             <section class="main-section main-section--recommond">
               <div class="main-section__header">
@@ -342,16 +360,16 @@
               </div>
               <div class="main-section__body">
                 <div class="direction">
-                  <a href="#left" class="direction__btn direction__btn--left">
+                  <a href="#left" class="direction-btn direction-btn--left">
                     <span class="blind">왼쪽</span>
                   </a>
-                  <a href="#right" class="direction__btn direction__btn--right">
+                  <a href="#right" class="direction-btn direction-btn--right">
                     <span class="blind">오른쪽</span>
                   </a>
                 </div>
                 <ul class="gallery">
                   <li class="gallery__item">
-                    <div class="gallery-image">
+                    <div class="main-image">
                       <img src="./images/recommond_gallery01.jpg" alt="" />
                     </div>
                     <div class="gallery-txt-box">
@@ -363,7 +381,7 @@
                     </div>
                   </li>
                   <li class="gallery__item">
-                    <div class="gallery-image">
+                    <div class="main-image">
                       <img src="./images/recommond_gallery02.jpg" alt="" />
                     </div>
                     <div class="gallery-txt-box">
@@ -375,7 +393,7 @@
                     </div>
                   </li>
                   <li class="gallery__item">
-                    <div class="gallery-image">
+                    <div class="main-image">
                       <img src="./images/recommond_gallery02.jpg" alt="" />
                     </div>
                     <div class="gallery-txt-box">
@@ -388,14 +406,14 @@
                   </li>
                 </ul>
                 <div class="dock">
-                  <div class="bar">
-                    <span class="bar__stage"></span>
+                  <div class="dock-bar">
+                    <span class="dock-bar__stage"></span>
                   </div>
-                  <div class="play-btn-box">
-                    <button class="play-btn play-btn--auto now">
+                  <div class="dock-btn-box">
+                    <button class="dock-btn dock-btn--auto now">
                       <span class="blind">자동재생</span>
                     </button>
-                    <button class="play-btn play-btn--pause">
+                    <button class="dock-btn dock-btn--pause">
                       <span class="blind">일시정지</span>
                     </button>
                   </div>
@@ -415,7 +433,7 @@
                 <a
                   class="more-btn"
                   href="https://www.sulwhasoo.com/kr/ko/best/best_seller.html"
-                  ><span class="more-text">자세히 보기</span></a
+                  ><span class="more-btn-text">자세히 보기</span></a
                 >
               </div>
               <div class="main-section__body">
@@ -433,16 +451,16 @@
               </div>
               <div class="main-section__body">
                 <div class="direction">
-                  <a href="#left" class="direction__btn direction__btn--left">
+                  <a href="#left" class="direction-btn direction-btn--left">
                     <span class="blind">왼쪽</span>
                   </a>
-                  <a href="#right" class="direction__btn direction__btn--right">
+                  <a href="#right" class="direction-btn direction-btn--right">
                     <span class="blind">오른쪽</span>
                   </a>
                 </div>
                 <ul class="gallery">
                   <li class="gallery__item">
-                    <div class="gallery-image">
+                    <div class="main-image">
                       <img src="./images/season_gallery01.jpg" alt="" />
                     </div>
                     <div class="gallery-txt-box">
@@ -454,7 +472,7 @@
                     </div>
                   </li>
                   <li class="gallery__item gallery__item--on">
-                    <div class="gallery-image">
+                    <div class="main-image">
                       <img src="./images/season_gallery02.jpg" alt="" />
                     </div>
                     <div class="gallery-txt-box">
@@ -466,7 +484,7 @@
                     </div>
                   </li>
                   <li class="gallery__item">
-                    <div class="gallery-image">
+                    <div class="main-image">
                       <img src="./images/season_gallery03.jpg" alt="" />
                     </div>
                     <div class="gallery-txt-box">
@@ -479,14 +497,14 @@
                   </li>
                 </ul>
                 <div class="dock">
-                  <div class="bar">
-                    <span class="bar__stage"></span>
+                  <div class="dock-bar">
+                    <span class="dock-bar__stage"></span>
                   </div>
-                  <div class="play-btn-box">
-                    <button class="play-btn play-btn--auto now">
+                  <div class="dock-btn-box">
+                    <button class="dock-btn dock-btn--auto now">
                       <span class="blind">자동재생</span>
                     </button>
-                    <button class="play-btn play-btn--pause">
+                    <button class="dock-btn dock-btn--pause">
                       <span class="blind">일시정지</span>
                     </button>
                   </div>
@@ -498,12 +516,12 @@
             <!-- S:service -->
             <section class="main-section main-section--service">
               <div class="main-section__header">
-                <h3 class="main-section__title">설화수 서비스</h3>
+                <h3 class="main-section__title blind">설화수 서비스</h3>
               </div>
               <div class="main-section__body">
                 <ul class="gallery">
                   <li class="gallery__item">
-                    <div class="gallery-image">
+                    <div class="main-image">
                       <img src="./images/service_gallery01.jpg" alt="" />
                     </div>
                     <p class="gallery-txt gallery-txt--kr">
@@ -512,11 +530,11 @@
                     <a
                       class="more-btn"
                       href="https://www.sulwhasoo.com/kr/ko/experience/archive/best/20210105.html"
-                      ><span class="more-text">자세히 보기</span></a
+                      ><span class="more-btn-text">자세히 보기</span></a
                     >
                   </li>
                   <li class="gallery__item">
-                    <div class="gallery-image">
+                    <div class="main-image">
                       <img src="./images/service_gallery02.jpg" alt="" />
                     </div>
                     <p class="gallery-txt gallery-txt--kr">
@@ -525,7 +543,7 @@
                     <a
                       class="more-btn"
                       href="https://www.sulwhasoo.com/kr/ko/flagship/bukchon/index.html"
-                      ><span class="more-text">자세히 보기</span></a
+                      ><span class="more-btn-text">자세히 보기</span></a
                     >
                   </li>
                 </ul>
@@ -540,19 +558,19 @@
               </div>
               <div class="main-section__body">
                 <div class="direction">
-                  <a href="#left" class="direction__btn direction__btn--left">
+                  <a href="#left" class="direction-btn direction-btn--left">
                     <span class="blind">왼쪽</span>
                   </a>
-                  <a href="#right" class="direction__btn direction__btn--right">
+                  <a href="#right" class="direction-btn direction-btn--right">
                     <span class="blind">오른쪽</span>
                   </a>
                 </div>
                 <ul class="gallery">
                   <li class="gallery__item">
-                    <div class="gallery-image">
+                    <div class="main-image">
                       <img src="./images/with_gallery01.jpg" alt="" />
                     </div>
-                    <div class="gallery-icon">
+                    <div class="main-image main-image--icon">
                       <img src="./images/with_item01.png" alt="" />
                     </div>
                     <div class="gallery-txt-box">
@@ -566,10 +584,10 @@
                     </div>
                   </li>
                   <li class="gallery__item">
-                    <div class="gallery-image">
+                    <div class="main-image">
                       <img src="./images/with_gallery02.jpg" alt="" />
                     </div>
-                    <div class="gallery-icon">
+                    <div class="main-image main-image--icon">
                       <img src="./images/with_item01.png" alt="" />
                     </div>
                     <div class="gallery-txt-box">
@@ -583,10 +601,10 @@
                     </div>
                   </li>
                   <li class="gallery__item">
-                    <div class="gallery-image">
+                    <div class="main-image">
                       <img src="./images/with_gallery03.jpg" alt="" />
                     </div>
-                    <div class="gallery-icon">
+                    <div class="main-image main-image--icon">
                       <img src="./images/with_item01.png" alt="" />
                     </div>
                     <div class="gallery-txt-box">
@@ -600,10 +618,10 @@
                     </div>
                   </li>
                   <li class="gallery__item">
-                    <div class="gallery-image">
+                    <div class="main-image">
                       <img src="./images/with_gallery04.jpg" alt="" />
                     </div>
-                    <div class="gallery-icon">
+                    <div class="main-image main-image--icon">
                       <img src="./images/with_item01.png" alt="" />
                     </div>
                     <div class="gallery-txt-box">
@@ -618,14 +636,14 @@
                   </li>
                 </ul>
                 <div class="dock">
-                  <div class="bar">
-                    <span class="bar__stage"></span>
+                  <div class="dock-bar">
+                    <span class="dock-bar__stage"></span>
                   </div>
-                  <div class="play-btn-box">
-                    <button class="play-btn play-btn--auto now">
+                  <div class="dock-btn-box">
+                    <button class="dock-btn dock-btn--auto now">
                       <span class="blind">자동재생</span>
                     </button>
-                    <button class="play-btn play-btn--pause">
+                    <button class="dock-btn dock-btn--pause">
                       <span class="blind">일시정지</span>
                     </button>
                   </div>
@@ -635,7 +653,6 @@
             <!-- E:with -->
           </div>
         </article>
-        <!-- E:main -->
 
         <!-- S:footer -->
         <footer class="footer blind">
@@ -706,7 +723,7 @@
                     href="https://www.apgroup.com/int/ko/about-us/about-us.html"
                     target="_blank"
                   >
-                    <div class="common-image">
+                    <div class="main-image">
                       <img
                         src="./images/footer_icon01.jpg"
                         alt="웹접근성 인증 마크"
@@ -719,7 +736,7 @@
                     href="https://www.apgroup.com/int/ko/about-us/about-us.html"
                     target="_blank"
                   >
-                    <div class="common-image">
+                    <div class="main-image">
                       <img src="./images/footer_icon02.jpg" alt="페이스북" />
                     </div>
                   </a>
@@ -729,7 +746,7 @@
                     href="https://www.apgroup.com/int/ko/about-us/about-us.html"
                     target="_blank"
                   >
-                    <div class="common-image">
+                    <div class="main-image">
                       <img src="./images/footer_icon03.jpg" alt="인스타그램" />
                     </div>
                   </a>
@@ -739,7 +756,7 @@
                     href="https://www.apgroup.com/int/ko/about-us/about-us.html"
                     target="_blank"
                   >
-                    <div class="common-image">
+                    <div class="main-image">
                       <img src="./images/footer_icon04.jpg" alt="유튜브" />
                     </div>
                   </a>
@@ -749,7 +766,7 @@
                     href="https://www.apgroup.com/int/ko/about-us/about-us.html"
                     target="_blank"
                   >
-                    <div class="common-image">
+                    <div class="main-image">
                       <img src="./images/footer_icon05.jpg" alt="카카오채널" />
                     </div>
                   </a>
