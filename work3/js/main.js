@@ -1,5 +1,6 @@
 // JavaScript Document
 
+//visual
 $(document).ready(function () {
   //visual
 
@@ -10,7 +11,7 @@ $(document).ready(function () {
 
   var barLength = "210"; //전체 bar 길이 / cnt
 
-  $(".visual .dock-bar__stage").css("width", barLength); // 첫번째 dock 버튼 너비 증가
+  $(".visual .dock-bar__stage").css("width", barLength).addClass("ani-strok"); // 첫번째 dock 버튼 너비 증가
 
   $(".visual .container").hide(); //모든 이미지를 보이지 않게 처리
   $(".visual .container--01").fadeIn("slow"); //첫번째 이미지 노출
@@ -21,7 +22,9 @@ $(document).ready(function () {
     $(".visual .container").hide(); //모든 이미지를 보이지 않게 처리
     $(".visual .container--0" + cnt).fadeIn("slow"); //자신과 관계있는 이미지만 노출
 
-    $(".visual .dock-bar__stage").css("width", barLength * cnt); // dock 버튼 원래 너비
+    $(".visual .dock-bar__stage")
+      .css("width", barLength * cnt)
+      .addClass("ani-strok"); // dock 버튼 원래 너비
 
     if (cnt == imageCount) cnt = 0; //카운트 초기화 0
   }
@@ -50,20 +53,39 @@ $(document).ready(function () {
   //왼쪽, 오른쪽 버튼
   $(".visual .direction-btn").click(function (event) {
     //각각의 버튼 클릭시
+    var position = 0; //최초위치
+    var movesize = $(window).width(); //이미지 하나의 너비(리뷰)
     var $target = $(event.target); //클릭한 버튼 $target == $(this)
     clearInterval(timeonoff); //타이머 중지
 
-    $(".visual .container").hide(); //모든 이미지를 보이지 않게 처리
+    $(".visual .container").fadeIn(); //모든 이미지를 보이게 처리
 
     if ($target.is(".visual .direction-btn--left")) {
-      cnt = 2;
-      $(".visual .container--0" + cnt).fadeIn("slow"); //자기 자신 이미지만 노출
-      $(".visual .dock-bar__stage").css("width", barLength * cnt); //관계있는 버튼 너비
+      if (position == -(movesize * imageCount)) {
+        $(".visual .container").css("left", 0);
+        position = 0;
+      }
     } else if ($target.is(".visual .direction-btn--right")) {
-      //오른쪽 버튼 클릭 여부
-      cnt = 2;
-      $(".visual .container--0" + cnt).fadeIn("slow"); //자기 자신 이미지만 노출
-      $(".visual .dock-bar__stage").css("width", barLength * cnt); //관계있는 버튼 너비
+      if (position == 0) {
+        $(".visual .container").css("left", -(movesize * imageCount));
+        position = -(movesize * imageCount);
+      }
+      position += movesize;
+      $(".visual .container")
+        .stop()
+        .animate(
+          {
+            left: position,
+          },
+          "fast",
+          function () {
+            // 포문 : 다음버튼 클릭했을 때 이미지 위치가 0일경우 옮겨주기
+            if (position == 0) {
+              $(".visual .container").css("left", -(movesize * imageCount));
+              position = -(movesize * imageCount);
+            }
+          }
+        );
     }
 
     // $(".visual .container--0" + cnt).fadeIn("slow"); //자기 자신 이미지만 노출
