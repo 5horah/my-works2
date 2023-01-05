@@ -440,22 +440,23 @@ $point-color: #ff6514;
     }
 
     // 제품 슬라이드
-    .gallery {
-      margin-top: 24px;
+    .silde {
       display: flex;
-      gap: 24px;
+      transform: translate(0, 0);
 
-      justify-content: space-between;
+      .main-image {
+        opacity: 0.5;
+      }
 
       &-box {
-        width: 1440px;
-        gap: 24px;
-
+        position: relative;
         overflow: hidden;
+      }
 
-        &__inner {
-          display: flex;
-        }
+      &__item {
+        flex: 0 0 100%;
+
+        position: relative;
       }
 
       &-txt {
@@ -539,11 +540,7 @@ $point-color: #ff6514;
     /* S:recommond */
     &--recommond {
       .direction {
-        margin-top: -90px;
-      }
-
-      .main-image {
-        width: 464px;
+        margin-top: -92px;
       }
     }
     /* E:recommond */

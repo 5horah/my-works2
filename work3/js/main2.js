@@ -1,7 +1,7 @@
 // JavaScript Document
 
 //visual
-$(document).ready(function () {
+$(function () {
   var dockBar = ".visual .dock-bar__stage"; //배너 순서 별 bar 길이
   var bannerClass = ".visual .container"; //배너 class
   var bannerEachClass = ".visual .container--0"; //각 배너 class
@@ -10,9 +10,8 @@ $(document).ready(function () {
   var barLength = "210"; //bar 길이 (전체 dock-bar길이 / 배너 수)
   var barBtn = ".visual .dock-btn--"; //재생 버튼 auto,pause로 구분
 
-  var cnt = 1; //최초 배너 순서
-  var position = 0; //배너 최초 위치
   var bannerCnt = 2; //배너 수
+  var cnt = 1; //최초 배너 순서
   var timeOnOff; //타이머
   var onoff = true; // true=타이머 동작중 , false=타이머 동작중지
 
@@ -70,10 +69,32 @@ $(document).ready(function () {
   });
 });
 
-//gallery
-function gallery() {
-  var $this = $(this);
+//silde
+$(function () {
+  //각각 silde에 대한 변수  silde-box + index로 사용해서 붙이기
 
-  //클릭 중복 방지
-  if()
-}
+  //해당 클래스 값을 가진 모든 요소를 가지고옴(배열)
+  const sildeList = document.querySelectorAll(".silde-box1 .silde");
+  const sildeItemArray = document.querySelectorAll(".silde-box1 .silde__item"); //[1,2,3]
+
+  const lastItem = $(sildeItemArray).length; //배열 값 = 3
+
+  const setTranslate = ({ index, reset }) => {
+    if (reset){
+      $(sildeList).css("transform","translate(-${sildeList.clientWidth}px, 0)");
+    }else{
+      $(sildeList).css("transform","translate(-${
+        (index + 1) * sildeList.clientWidth
+      }px, 0)");
+    }
+
+  };
+
+  //앞뒤 복사
+  $(sildeList).prepend($(sildeItemArray)[lastItem - 1].cloneNode(true));
+  $(sildeList).append($(sildeItemArray)[0].cloneNode(true));
+
+  setTranslate({ reset: true });
+});
+
+// console.log(translate(-${sildeList.clientWidth}px, 0));
