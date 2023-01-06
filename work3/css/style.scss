@@ -440,7 +440,7 @@ $point-color: #ff6514;
     }
 
     // 제품 슬라이드
-    .silde {
+    .slide {
       display: flex;
       transform: translate(0, 0);
 
@@ -451,12 +451,13 @@ $point-color: #ff6514;
       &-box {
         position: relative;
         overflow: hidden;
+
+        margin-top: 24px;
       }
 
       &__item {
-        flex: 0 0 100%;
-
         position: relative;
+        flex-shrink: 0;
       }
 
       &-txt {

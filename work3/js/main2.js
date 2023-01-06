@@ -69,32 +69,62 @@ $(function () {
   });
 });
 
-//silde
-$(function () {
-  //각각 silde에 대한 변수  silde-box + index로 사용해서 붙이기
+//slide
+var slideBox = $(".slide-box");
+var slideList = slideBox.find(".slide");
+var slideItem = slideList.find(".slide__item");
 
-  //해당 클래스 값을 가진 모든 요소를 가지고옴(배열)
-  const sildeList = document.querySelectorAll(".silde-box1 .silde");
-  const sildeItemArray = document.querySelectorAll(".silde-box1 .silde__item"); //[1,2,3]
+var slideIdx = 0; //슬라이드 시작점
+var slideCnt = slideItem.length; //슬라이드 배열 길이
+var slideWidth = 464; //슬라이드 아이템 width
+var slideGap = 24; //슬라이드 아이템 간격
+var itemMov = slideWidth + slideGap; //슬라이드 아이템 움직이는 거리 계산
+var maxSilde = 3;
+var responsiveMargin = 20;
+var newSlideList;
+var newSlideWidth;
+var prevBtn = slideBox.find(".direction-btn--left");
+var nextBtn = slideBox.find(".direction-btn--right");
 
-  const lastItem = $(sildeItemArray).length; //배열 값 = 3
+newSlideWidth = slideWidth; //복사한 슬라이드 배열 길이 = 기존 슬라이드 배열 길이
 
-  const setTranslate = ({ index, reset }) => {
-    if (reset){
-      $(sildeList).css("transform","translate(-${sildeList.clientWidth}px, 0)");
-    }else{
-      $(sildeList).css("transform","translate(-${
-        (index + 1) * sildeList.clientWidth
-      }px, 0)");
-    }
+//복사본 생성 및 앞/뒤에 추가
+slideList.css({ gap: slideGap + "px" });
+slideList.prepend(slideItem.clone().addClass("clone")); //앞
+slideList.append(slideItem.clone().addClass("clone")); //뒤
 
-  };
+//가로 배열
+function slideWrap(sw, sg) {
+  newSlideList = $(".slide li");
+  itemMov = sw + sg;
 
-  //앞뒤 복사
-  $(sildeList).prepend($(sildeItemArray)[lastItem - 1].cloneNode(true));
-  $(sildeList).append($(sildeItemArray)[0].cloneNode(true));
+  newSlideList.each(function (idx) {
+    $(this).css({ flexBasis: sw + "px" });
+  });
+}
+slideWrap(slideWidth, slideGap);
 
-  setTranslate({ reset: true });
+//중앙 정렬
+function centerSlide() {
+  var fullSlide = -itemMov * slideCnt + "px";
+  slideList.css({ transform: "translateX(" + fullSlide + ")" });
+}
+centerSlide();
+
+//좌우 슬라이드 버튼
+nextBtn.click(function () {
+  itemMov(slideIdx + 1);
+});
+prevBtn.click(function () {
+  itemMov(slideIdx - 1);
 });
 
-// console.log(translate(-${sildeList.clientWidth}px, 0));
+//슬라이드 이동
+function slideMov(num) {
+  slideList.stop().animate({ left: itemMov * num + "px" }, 500, function () {
+    if (slideIdx == slideCnt || slideIdx == -(-slideCnt)) {
+      slideList.css({ left: "0px" });
+      slideIdx = 0;
+    }
+  });
+}
