@@ -445,10 +445,6 @@ $point-color: #ff6514;
 
       display: flex;
 
-      .main-image {
-        opacity: 0.5;
-      }
-
       &-box {
         position: relative;
         overflow: hidden;
@@ -580,13 +576,19 @@ $point-color: #ff6514;
         margin-top: -39px;
       }
 
-      .gallery {
+      .product {
+        display: flex;
+        gap: 24px;
+
+        margin-top: 24px;
+
         &__item {
           position: relative;
-          &--on {
+
+          &--center {
             text-align: left;
 
-            .gallery-txt {
+            .product-txt {
               &-box {
                 margin-bottom: 46px;
                 margin-left: 59px;
@@ -600,6 +602,20 @@ $point-color: #ff6514;
         }
 
         &-txt {
+          &--kr {
+            font-size: 20px;
+            font-weight: $medium;
+            margin-top: 23px;
+          }
+
+          &--en {
+            font-family: "Roboto", sans-serif;
+            font-size: 16px;
+            font-weight: $light;
+            color: #888888;
+            margin-top: 6px;
+          }
+
           &-box {
             position: absolute;
             width: 100%;
@@ -608,7 +624,7 @@ $point-color: #ff6514;
             margin-bottom: 48px;
           }
 
-          &--desc {
+          &--price {
             font-size: 16px;
             letter-spacing: -0.025em;
             color: #666666;
@@ -616,10 +632,6 @@ $point-color: #ff6514;
             margin-top: 3px;
           }
         }
-      }
-
-      .doc {
-        margin-top: 49px;
       }
     }
     /* E:season */
@@ -629,9 +641,6 @@ $point-color: #ff6514;
       margin-top: 120px;
 
       .gallery {
-        &__item {
-        }
-
         &-txt {
           &--kr {
             font-size: 28px;
@@ -655,9 +664,7 @@ $point-color: #ff6514;
         margin-top: -39px;
       }
 
-      .gallery {
-        gap: 24px;
-
+      .slide {
         &__item {
           position: relative;
 
