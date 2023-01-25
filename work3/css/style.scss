@@ -288,15 +288,17 @@ $point-color: #ff6514;
       width: 100%;
       height: 100%;
       left: 0;
-      top: 0;
-
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
+      bottom: 0;
 
       .inner {
-        width: 1440px;
-        margin: 0 auto 146px auto;
+        max-width: 1440px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        height: 100%;
+
+        margin: 0 auto;
       }
     }
 
@@ -314,6 +316,7 @@ $point-color: #ff6514;
         font-size: 36px;
         margin-top: 15px;
         margin-left: -4px;
+        margin-bottom: 10%;
       }
     }
   }
@@ -328,8 +331,8 @@ $point-color: #ff6514;
     position: absolute;
     left: 50%;
     bottom: 0;
-    margin-left: -720px;
-    margin-bottom: 80px;
+    transform: translateX(-50%);
+    margin-bottom: 5%;
 
     &-bar {
       width: 420px;
@@ -391,7 +394,7 @@ $point-color: #ff6514;
     top: 50%;
     left: 0;
     z-index: 90;
-    margin-top: -35px;
+    transform: translateY(-50%);
     display: flex;
     justify-content: space-between;
     &-btn {
@@ -408,8 +411,9 @@ $point-color: #ff6514;
         background: url(../images/direction_left.png) no-repeat;
         background-size: cover;
         position: absolute;
-        top: 25px;
-        left: 29px;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
       }
       &--right::before {
         background: url(../images/direction_right.png) no-repeat;
@@ -423,6 +427,10 @@ $point-color: #ff6514;
   /* S:main-section common */
   &-section {
     position: relative;
+
+    &-wrap {
+      padding: 0 24px;
+    }
 
     &__inner {
       max-width: 1440px;
@@ -492,6 +500,8 @@ $point-color: #ff6514;
       margin-left: 0;
       align-items: center;
       justify-content: center;
+      transform: none;
+      margin-bottom: 0;
 
       &-bar {
         background: #dddddd;
@@ -538,7 +548,7 @@ $point-color: #ff6514;
     /* S:recommond */
     &--recommond {
       .direction {
-        margin-top: -166px;
+        top: 33%;
       }
     }
     /* E:recommond */
@@ -550,12 +560,14 @@ $point-color: #ff6514;
 
       .main-section__header {
         position: absolute;
+        bottom: 0;
+        left: 0;
         z-index: 10;
         margin-left: 170px;
+        margin-bottom: 90px;
       }
 
       .main-section__title {
-        margin-top: 277px;
         font-size: 32px;
       }
 
@@ -640,7 +652,11 @@ $point-color: #ff6514;
     &--service {
       margin-top: 120px;
 
-      .gallery {
+      .slide {
+        &__item {
+          width: 50%;
+        }
+
         &-txt {
           &--kr {
             font-size: 28px;
@@ -674,6 +690,7 @@ $point-color: #ff6514;
         &-txt {
           &-box {
             position: absolute;
+            width: 100%;
             height: 100px;
             bottom: 0;
             left: 0;
@@ -685,7 +702,7 @@ $point-color: #ff6514;
             font-weight: $light;
             letter-spacing: -0.025em;
             margin-top: 25px;
-            width: 322px;
+            width: 94%;
             overflow: hidden;
             white-space: nowrap;
             text-overflow: ellipsis;
@@ -699,7 +716,7 @@ $point-color: #ff6514;
             font-weight: $light;
             letter-spacing: -0.025em;
             margin-top: 8px;
-            width: 322px;
+            width: 94%;
             overflow: hidden;
             white-space: nowrap;
             text-overflow: ellipsis;
@@ -723,5 +740,41 @@ $point-color: #ff6514;
       }
     }
     /* E:width */
+  }
+}
+
+@media only all and(max-width:1440px) {
+  .main .visual-txt-box .inner {
+    padding-left: 1.7%;
+  }
+
+  .main .dock {
+    width: 100%;
+  }
+
+  .main .dock-bar {
+    margin-left: 1.7%;
+  }
+
+  .main-section--best .main-section__header {
+    margin-left: 12.2%;
+    margin-bottom: 6.5%;
+  }
+}
+
+@media only all and(max-width:1024px) {
+  .main .visual-txt--en {
+    font-size: 14px;
+  }
+  .main .visual-txt--kr {
+    font-size: 24px;
+  }
+  .main .direction-btn {
+    width: 50px;
+    height: 50px;
+  }
+  .main .direction-btn::before {
+    width: 8px;
+    height: 16px;
   }
 }

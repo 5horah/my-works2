@@ -5,25 +5,25 @@ $(function () {
 
   function visuaslSlide() {
     //visual
-    var visualBox = $(".visual-box");
-    var visualList = visualBox.find(".visual");
-    var visualItem = visualBox.find(".visual__item");
+    let visualBox = $(".visual-box");
+    let visualList = visualBox.find(".visual");
+    let visualItem = visualBox.find(".visual__item");
 
-    var visualIdx = 0; //비쥬얼 처음 시작점
-    var visualCnt = visualItem.length; //비주얼 아이템 요소 갯수
-    var visualWidth = 100; //비주얼 아이템 width
-    var visualItemMov = visualWidth; //비주얼 이동 거리 계산
+    let visualIdx = 0; //비쥬얼 처음 시작점
+    let visualCnt = visualItem.length; //비주얼 아이템 요소 갯수
+    let visualWidth = 100; //비주얼 아이템 width
+    let visualItemMov = visualWidth; //비주얼 이동 거리 계산
 
-    var visualBtn = visualBox.find(".direction-btn");
-    var visualPrevBtn = visualBox.find(".direction-btn--left"); //왼쪽 버튼
-    var visualNextBtn = visualBox.find(".direction-btn--right"); //오른쪽 버튼
+    let visualBtn = visualBox.find(".direction-btn");
+    let visualPrevBtn = visualBox.find(".direction-btn--left"); //왼쪽 버튼
+    let visualNextBtn = visualBox.find(".direction-btn--right"); //오른쪽 버튼
 
-    var visualDockBar = visualBox.find(".dock-bar__stage");
-    var visualBarLength = 420 / visualCnt; //bar 길이 (전체 dock-bar길이 / 아이템 수)
+    let visualDockBar = visualBox.find(".dock-bar__stage");
+    let visualBarLength = 420 / visualCnt; //bar 길이 (전체 dock-bar길이 / 아이템 수)
 
-    var visualDockBtn = visualBox.find(".dock-btn"); //재생/일시정지버튼
-    var visualDockBtnPause = visualBox.find(".dock-btn--pause"); //일시정지버튼
-    var visualDockBtnAuto = visualBox.find(".dock-btn--auto"); //재생버튼
+    let visualDockBtn = visualBox.find(".dock-btn"); //재생/일시정지버튼
+    let visualDockBtnPause = visualBox.find(".dock-btn--pause"); //일시정지버튼
+    let visualDockBtnAuto = visualBox.find(".dock-btn--auto"); //재생버튼
 
     //복사본 생성 및 앞/뒤 추가
     visualList.prepend(visualItem.clone().addClass("clone")); //앞 추가
@@ -32,7 +32,7 @@ $(function () {
 
     //중앙 정렬
     function VisuaslCenterLayer() {
-      var visualFullSide = -visualItemMov * visualCnt + "%"; //-이동 거리 * 아이템 갯수
+      let visualFullSide = -visualItemMov * visualCnt + "%"; //-이동 거리 * 아이템 갯수
       visualList.css({ transform: "translateX(" + visualFullSide + ")" });
     }
     VisuaslCenterLayer();
@@ -64,7 +64,7 @@ $(function () {
     }
 
     //자동 슬라이드
-    var visualSildeTimer = undefined;
+    let visualSildeTimer = undefined;
     function visualAutoSlide() {
       if (visualSildeTimer == undefined) {
         visualSildeTimer = setInterval(function () {
@@ -115,7 +115,7 @@ $(function () {
     $(".slide-box").each(function (index) {
       //slide
       //slide class 변수
-      var swiper = undefined;
+      let swiper = undefined;
 
       $(this).addClass("slide-box--" + index);
 
@@ -125,29 +125,40 @@ $(function () {
         swiper = undefined;
       }
 
-      var slideBox = $(".slide-box--" + index);
-      var slideList = slideBox.find(".slide");
-      var slideItem = slideList.find(".slide__item");
+      let slideBox = $(".slide-box--" + index);
+      let slideList = slideBox.find(".slide");
+      let slideItem = slideList.find(".slide__item");
 
-      var slideIdx = 0; //슬라이드 처음 시작점
-      var slideCnt = slideItem.length; //아이템 요소 갯수
-      var slideWidth = slideItem.width(); //슬라이드 아이템 width
-      var slideGap = 24; //슬라이드 아이템 간격
-      var itemMov = slideWidth + slideGap; //슬라이드 이동 거리 계산
-      var newSlideWidth; //clone된 슬라이드 width
+      let slideIdx = 0; //슬라이드 처음 시작점
+      let slideCnt = slideItem.length; //아이템 요소 갯수
 
-      var btn = slideBox.find(".direction-btn");
-      var prevBtn = slideBox.find(".direction-btn--left"); //왼쪽 버튼
-      var nextBtn = slideBox.find(".direction-btn--right"); //오른쪽 버튼
+      if (index == 1) {
+        var slideBoxWidth = slideBox.width() / 4;
+      } else {
+        var slideBoxWidth = slideBox.width() / 3;
+      }
 
-      var dockBar = slideBox.find(".dock-bar__stage");
-      var barLength = 420 / slideCnt; //bar 길이 (전체 dock-bar길이 / 아이템 수)
+      let slideGap = 24; //슬라이드 아이템 간격
 
-      var dockBtn = slideBox.find(".dock-btn"); //재생/일시정지버튼
-      var dockBtnPause = slideBox.find(".dock-btn--pause"); //일시정지버튼
-      var dockBtnAuto = slideBox.find(".dock-btn--auto"); //재생버튼
+      let slideWidth = slideBoxWidth - slideGap / 1.5; //슬라이드 아이템 width
+
+      let itemMov = slideWidth + slideGap; //슬라이드 이동 거리 계산
+      let newSlideWidth; //clone된 슬라이드 width
+
+      let btn = slideBox.find(".direction-btn");
+      let prevBtn = slideBox.find(".direction-btn--left"); //왼쪽 버튼
+      let nextBtn = slideBox.find(".direction-btn--right"); //오른쪽 버튼
+
+      let dockBar = slideBox.find(".dock-bar__stage");
+      let barLength = 420 / slideCnt; //bar 길이 (전체 dock-bar길이 / 아이템 수)
+
+      let dockBtn = slideBox.find(".dock-btn"); //재생/일시정지버튼
+      let dockBtnPause = slideBox.find(".dock-btn--pause"); //일시정지버튼
+      let dockBtnAuto = slideBox.find(".dock-btn--auto"); //재생버튼
 
       newSlideWidth = slideWidth; //복사한 슬라이드 배열 길이 = 기존 슬라이드 배열 길이
+
+      slideItem.css("width", slideWidth);
 
       //복사본 생성 및 앞/뒤에 추가
       slideList.css({ gap: slideGap + "px" }); //슬라이드 간격 추가 css
@@ -157,7 +168,7 @@ $(function () {
 
       //중앙 정렬
       function centerLayer() {
-        var fullSlide = -itemMov * slideCnt + "px"; // -슬라이드 움직이는 거리 * 아이템 요소 갯수
+        let fullSlide = -itemMov * slideCnt + "px"; // -슬라이드 움직이는 거리 * 아이템 요소 갯수
         slideList.css({ transform: "translateX(" + fullSlide + ")" });
       }
       centerLayer();
@@ -189,8 +200,7 @@ $(function () {
       }
 
       //자동 슬라이드
-      var slideTimer = undefined;
-      var onoff2 = true;
+      let slideTimer = undefined;
 
       function autoSlide() {
         if (slideTimer == undefined) {
