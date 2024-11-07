@@ -1,8 +1,14 @@
+:root{
+    --drawer-ctn-y: 0;
+}
+
 body{
     text-align: center;
     position: relative;
 
     background-color: #000;
+
+    overflow-y: hidden;
 }
 
 section{
@@ -11,6 +17,7 @@ section{
     height: 100vh;
 
     box-sizing: border-box;
+    transition: all 0.3s;
 }
 
 h1{
@@ -38,10 +45,12 @@ button{
     transition: background-color 0.3s, color 0.3s;
 }
 
-/* is-active */
-article.is-active section{
-margin:1em;
-border-radius: 0.5em;
+/* is-open */
+.article--drawer.is-open section{
+    transform: scale(0.95) translateY(0.05em);
+    border-radius: 0.5em;
+
+
 }
 
 button:hover{
@@ -49,49 +58,67 @@ button:hover{
     color: #fff;
 }
 
-.drawer{
-    position: fixed;
-    top:0;
-    width:100%;
-    height:100%;
-}
-
-.drawer__dim{
-    position: fixed;
+.dimmed{
+    position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 0%;
+    height: 0%;
     background-color: rgba(0,0,0,0.4);
+    opacity: 0;
+    transition: opacity 0.3s  
 }
 
 .drawer__ctn{
     background-color: #fff;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: -webkit-fill-available;
     height: 100%;
     border-radius: 0.5em;
     margin-top:2.5em;
-
     padding: 1em;
+    transform: translate3d(0, 100% ,0);
+    /* transition: all 0.5s;   */
+
+    pointer-events: auto;
+    will-change: transform;
 }
 
-.drawer__ctn::after{
-    content: '';
-    display: block;
-    position: absolute;
-    top: 1em;
-    left: 50%;
-    width: 10em;
-    height: 1em;
-    z-index: 1;
-border-radius: 0.5em;
-    transform: translateX(-50%);
-    border-bottom-color: #eee;
+.drawer__ctn::before{
+    content:"";
+    display:block;
+    width:5em;
+    height:0.5em;
+    background-color:#bbb;
+    border-radius:0.5em;
+    position:absolute;
+    top:0;
+    left:50%;
+    transform:translateX(-50%);
+    margin-top:1em;     
 }
 
 .drawer__text{
     margin-top: 3em;
+}
+
+.article--drawer.is-open .dimmed{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    transition: opacity 0.3s  
+}
+
+
+.article--drawer.is-open .drawer__ctn{
+    transform: translate3d(0,var(--drawer-ctn-y),0);
+    /* transition: all 0.5s   */
+}
+
+.has-easing{
+    transition: all 0.5s
 }
