@@ -25,17 +25,19 @@
     drawerCtn.addEventListener('mousedown', (e) => {
         e.preventDefault();
         drawerCtn.classList.remove(aniClass);
-        startY = e.offsetY;
+        startY = e.clientY;
+        currentY = article.offsetTop;
         isMouseMove = true;
     });
 
     drawerCtn.addEventListener('mousemove', (e) => {
+        if (!isMouseMove) return;
         e.preventDefault();
 
-        if (isMouseMove) {
-            moveY = e.offsetY || 0; // Ensure moveY always has a value
-            article.style.setProperty('--drawer-ctn-y', `${moveY}px`);
-        }
+        console.log(e.clientY, startY);
+        const deltaY = e.clientY - startY;
+        moveY = currentY + deltaY;
+        article.style.setProperty('--drawer-ctn-y', `${moveY}px`);
     });
 
     drawerCtn.addEventListener('mouseup', (e) => {
@@ -54,6 +56,21 @@
         }
     });
 
+    drawerCtn.addEventListener('mouseleave', (e) => {
+        if (!isMouseMove) return;  // 드래그 중일 때만 실행
+        
+        e.preventDefault();
+        drawerCtn.classList.add(aniClass);
+        isMouseMove = false;
+    
+        if(viewHeight > (moveY || 0)){
+            article.style.setProperty('--drawer-ctn-y', "0%");
+        } else {
+            article.classList.remove(openClass);
+            article.style.setProperty('--drawer-ctn-y', "0%");
+        }
+    });
+
     function getTouchPos(e) {
         if (!e.touches || !e.touches[0]) return { y: 0 }; // Add error handling
         return {
@@ -62,7 +79,6 @@
     } 
 
     drawerCtn.addEventListener('touchstart', (e) => {
-        e.preventDefault();
         drawerCtn.classList.remove(aniClass);
         const { y } = getTouchPos(e);
         startY = y;
