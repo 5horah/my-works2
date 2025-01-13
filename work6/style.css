@@ -1,0 +1,38 @@
+:root {
+    --total-frames: 16;
+}
+
+body {
+    margin: 50px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-use-select: none;
+    user-select: none;
+}
+
+.product-viewer {
+    overflow: hidden;
+    background-color: red;
+}
+
+.product-viewer__inner {
+    position: relative;
+}
+
+.product-viewer img {
+    width: 100%;
+    display: block;
+}
+
+.product-viewer .product-image {
+    background-image: url("https://codyhouse.co/demo/360-degrees-product-viewer/img/alfa.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(var(--view-num) * 100%);
+    height: 100%;
+    transform: translateX(calc(var(--current-section, 0) * var(--move-value, 0) * -1));
+}
