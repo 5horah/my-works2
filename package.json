@@ -1,0 +1,19 @@
+{
+  "name": "my-works",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+   "work6": "parcel work6/index.html --host 192.168.0.73",
+    "work7": "parcel work7/index.html --host 192.168.0.73"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.13.3"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}

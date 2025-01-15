@@ -37,3 +37,5 @@ body {
     height: 100%;
     transform: translateX(calc(var(--current-section, 0) * var(--move-value, 0) * -1));
 }
+
+/*# sourceMappingURL=/style.e308ff8e.css.map */
