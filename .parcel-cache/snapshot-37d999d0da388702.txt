@@ -50,7 +50,7 @@
 66D:\my-works\node_modules\psl\node_modules\punycode\punycode.es6.js133814029545150483 0
 90D:\my-works\node_modules\@parcel\transformer-posthtml\node_modules\semver\classes\range.js133814037641830906 0
 80D:\my-works\node_modules\jsdom\lib\jsdom\living\nodes\HTMLUnknownElement-impl.js133814029599507810 0
-24D:\my-works\package.json133814877537372819 0
+24D:\my-works\package.json133814845232310698 0
 65D:\my-works\node_modules\wrap-ansi-cjs\node_modules\color-convert133814037632918402 1
 19D:\my-works\.vscode133346534786550988 1
 89D:\my-works\node_modules\@parcel\transformer-babel\node_modules\semver\functions\clean.js133814037657461868 0
@@ -159,7 +159,7 @@
 42D:\my-works\work3\images\footer_icon03.jpg133346534786778462 0
 44D:\my-works\node_modules\lodash\fp\equals.js133814029598692439 0
 46D:\my-works\node_modules\lodash\_createCtor.js133814029573190536 0
-28D:\my-works\work7\index.html133814877590562955 0
+28D:\my-works\work7\index.html133814832756876670 0
 27D:\my-works\work6\script.js133814876748992076 0
 61D:\my-works\node_modules\fast-json-stable-stringify\README.md133814029546486366 0
 66D:\my-works\node_modules\psl\node_modules\punycode\LICENSE-MIT.txt133814029552188687 0

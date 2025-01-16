@@ -7,22 +7,49 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="product-viewer" data-product-viewer data-viewer-num="16">
-      <div class="product-viewer__inner">
-        <img
-          src="https://codyhouse.co/demo/360-degrees-product-viewer/img/alfa-loading.jpg"
-          alt="Product Preview"
-        />
-        <div class="product-image"></div>
+    <div data-tab-container data-active-tab="0">
+      <div data-tab-button-wrap>
+        <div data-tab-button="0">color 01</div>
+        <div data-tab-button="1">color 02</div>
+        <div data-tab-button="2">color 03</div>
       </div>
-    </div>
-    <div class="product-viewer" data-product-viewer data-viewer-num="16">
-      <div class="product-viewer__inner">
-        <img
-          src="https://codyhouse.co/demo/360-degrees-product-viewer/img/alfa-loading.jpg"
-          alt="Product Preview"
-        />
-        <div class="product-image"></div>
+      <div data-tab-content-wrap>
+        <div data-tab-content="0">
+          <p>01</p>
+          <div data-product-viewer data-viewer-num="16">
+            <div>
+              <img
+                src="https://codyhouse.co/demo/360-degrees-product-viewer/img/alfa-loading.jpg"
+                data-product-preview
+              />
+              <div data-product-images></div>
+            </div>
+          </div>
+        </div>
+        <div data-tab-content="1">
+          <p>02</p>
+          <div data-product-viewer data-viewer-num="16">
+            <div>
+              <img
+                src="https://codyhouse.co/demo/360-degrees-product-viewer/img/alfa-loading.jpg"
+                data-product-preview
+              />
+              <div data-product-images></div>
+            </div>
+          </div>
+        </div>
+        <div data-tab-content="2">
+          <p>03</p>
+          <div data-product-viewer data-viewer-num="16">
+            <div>
+              <img
+                src="https://codyhouse.co/demo/360-degrees-product-viewer/img/alfa-loading.jpg"
+                data-product-preview
+              />
+              <div data-product-images></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <script src="script.js"></script>

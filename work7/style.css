@@ -10,30 +10,76 @@ body {
     user-select: none;
 }
 
-.product-viewer {
+[data-product-viewer] {
     overflow: hidden;
-    background-color: red;
     cursor: ew-resize;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 
-.product-viewer__inner {
+[data-product-viewer] > div {
     position: relative;
 }
 
-.product-viewer img {
+[data-product-viewer] img {
     width: 100%;
     display: block;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
 }
 
-.product-viewer .product-image {
-    background-image: url("https://codyhouse.co/demo/360-degrees-product-viewer/img/alfa.png");
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background-position: center center;
+[data-product-viewer] [data-product-images] {
     position: absolute;
     top: 0;
     left: 0;
     width: calc(var(--view-num) * 100%);
     height: 100%;
     transform: translateX(calc(var(--current-section, 0) * var(--move-value, 0) * -1));
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
 }
+
+[data-product-viewer] [data-product-images] img{
+    flex: 0 0 auto;
+    width: calc(100%/var(--view-num));
+}
+
+[data-tab-container] [data-tab-button-wrap]{
+    display: flex;
+    justify-content: center;
+}
+
+[data-tab-container] [data-tab-button-wrap] > div{
+    cursor: pointer;
+    padding: 10px 20px;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+}
+
+[data-tab-container] [data-tab-button-wrap] > div:not(:first-child) {
+    margin-left: 20px;
+}
+
+[data-tab-container] [data-tab-content-wrap]{
+    position: relative;
+}
+
+[data-tab-container] [data-tab-content]{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    display: none;
+}
+
+[data-tab-container] [data-active="true"]{
+    display: block;
+}
+

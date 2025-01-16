@@ -1,4 +1,4 @@
-17321
+17315
 53D:\my-works\node_modules\uri-js\dist\esnext\util.d.ts133814029564639241 0
 82D:\my-works\node_modules\@parcel\packager-html\node_modules\supports-color\license133814037653932224 0
 87D:\my-works\node_modules\@parcel\optimizer-svgo\node_modules\color-convert\CHANGELOG.md133814037656508081 0
@@ -29,7 +29,7 @@
 84D:\my-works\node_modules\lmdb\dependencies\lmdb-data-v1\libraries\liblmdb\mdb_stat.1133814037624547160 0
 110D:\my-works\node_modules\@parcel\optimizer-htmlnano\node_modules\postcss-merge-longhand\src\lib\getLastNode.js133814037664868516 0
 40D:\my-works\node_modules\tr46\LICENSE.md133814029512575896 0
-16D:\my-works\dist133814876750129638 1
+16D:\my-works\dist133814831995535152 1
 44D:\my-works\node_modules\lodash\defaultTo.js133814029598416424 0
 80D:\my-works\node_modules\@parcel\reporter-tracer\node_modules\@parcel\logger\lib133814037656568076 1
 59D:\my-works\node_modules\uncss\node_modules\is-absolute-url133814029551503179 1
@@ -50,7 +50,7 @@
 66D:\my-works\node_modules\psl\node_modules\punycode\punycode.es6.js133814029545150483 0
 90D:\my-works\node_modules\@parcel\transformer-posthtml\node_modules\semver\classes\range.js133814037641830906 0
 80D:\my-works\node_modules\jsdom\lib\jsdom\living\nodes\HTMLUnknownElement-impl.js133814029599507810 0
-24D:\my-works\package.json133814877537372819 0
+24D:\my-works\package.json133814832776403757 0
 65D:\my-works\node_modules\wrap-ansi-cjs\node_modules\color-convert133814037632918402 1
 19D:\my-works\.vscode133346534786550988 1
 89D:\my-works\node_modules\@parcel\transformer-babel\node_modules\semver\functions\clean.js133814037657461868 0
@@ -142,7 +142,7 @@
 81D:\my-works\node_modules\@parcel\transformer-css\node_modules\@parcel\logger\test133814037659594034 1
 81D:\my-works\node_modules\@parcel\optimizer-htmlnano\node_modules\css-what\LICENSE133814037654208948 0
 35D:\my-works\work3\images\search.png133346534786800884 0
-27D:\my-works\work6\style.css133814867984634422 0
+27D:\my-works\work6\style.css133814819070580395 0
 112D:\my-works\node_modules\@parcel\transformer-posthtml\node_modules\posthtml\node_modules\domutils\lib\helpers.js133814037615189275 0
 50D:\my-works\node_modules\caniuse-api\dist\utils.js133814029536149308 0
 21D:\my-works\work3\css133346534786580985 1
@@ -159,12 +159,12 @@
 42D:\my-works\work3\images\footer_icon03.jpg133346534786778462 0
 44D:\my-works\node_modules\lodash\fp\equals.js133814029598692439 0
 46D:\my-works\node_modules\lodash\_createCtor.js133814029573190536 0
-28D:\my-works\work7\index.html133814877590562955 0
-27D:\my-works\work6\script.js133814876748992076 0
+28D:\my-works\work7\index.html133814832756876670 0
+27D:\my-works\work6\script.js133814828447826905 0
 61D:\my-works\node_modules\fast-json-stable-stringify\README.md133814029546486366 0
 66D:\my-works\node_modules\psl\node_modules\punycode\LICENSE-MIT.txt133814029552188687 0
 27D:\my-works\work7\script.js133814832760724887 0
-27D:\my-works\work7\style.css133814838756889520 0
+27D:\my-works\work7\style.css133814832765362588 0
 72D:\my-works\node_modules\caniuse-lite\data\features\loading-lazy-attr.js133814029600704400 0
 66D:\my-works\node_modules\caniuse-lite\data\features\videotracks.js133814029604560774 0
 50D:\my-works\node_modules\sshpk\lib\formats\auto.js133814029532405584 0
@@ -177,7 +177,7 @@
 62D:\my-works\node_modules\psl\node_modules\punycode\punycode.js133814029547899467 0
 37D:\my-works\node_modules\bcrypt-pbkdf133814029516857156 1
 82D:\my-works\node_modules\@mischnic\json-sourcemap\node_modules\json5\dist\index.js133814037615349271 0
-28D:\my-works\work6\index.html133814858589323255 0
+28D:\my-works\work6\index.html133814755913576686 0
 49D:\my-works\node_modules\lodash\fp\lastIndexOf.js133814029600880377 0
 40D:\my-works\node_modules\abab\index.d.ts133814029525870094 0
 47D:\my-works\node_modules\tweetnacl\nacl-fast.js133814029518474439 0
@@ -723,7 +723,6 @@
 34D:\my-works\node_modules\aws-sign2133814029517177152 1
 95D:\my-works\node_modules\@parcel\optimizer-svgo\node_modules\@parcel\utils\test\input\sourcemap133814037693590371 1
 53D:\my-works\node_modules\xml-name-validator\README.md133814029516327154 0
-38D:\my-works\dist\index.e17a6aba.js.map133814876750129638 0
 29D:\my-works\node_modules\aws4133814029518756220 1
 85D:\my-works\node_modules\@parcel\optimizer-htmlnano\node_modules\terser\lib\minify.js133814037626136696 0
 81D:\my-works\node_modules\@parcel\optimizer-htmlnano\node_modules\srcset\readme.md133814037659924114 0
@@ -5982,7 +5981,7 @@
 46D:\my-works\node_modules\lodash\_baseInvoke.js133814029566569700 0
 51D:\my-works\node_modules\lodash\_baseIsArguments.js133814029566629695 0
 88D:\my-works\node_modules\foreground-child\node_modules\signal-exit\dist\cjs\browser.d.ts133814037637088374 0
-39D:\my-works\dist\index.5cfb13f9.css.map133814838582348472 0
+39D:\my-works\dist\index.5cfb13f9.css.map133814802052590140 0
 92D:\my-works\node_modules\@parcel\optimizer-htmlnano\node_modules\domelementtype\package.json133814037616587800 0
 93D:\my-works\node_modules\@parcel\transformer-posthtml\node_modules\@parcel\utils\package.json133814037690681810 0
 42D:\my-works\node_modules\getpass\README.md133814029514646697 0
@@ -6958,7 +6957,7 @@
 71D:\my-works\node_modules\jsdom\lib\jsdom\living\generated\WheelEvent.js133814029588942313 0
 67D:\my-works\node_modules\json-stringify-safe\test\stringify_test.js133814029526339160 0
 41D:\my-works\node_modules\lmdb\index.d.cts133814037630106238 0
-38D:\my-works\dist\index.b833c774.js.map133814837183494825 0
+38D:\my-works\dist\index.b833c774.js.map133814793834911030 0
 66D:\my-works\node_modules\jsdom\lib\jsdom\living\generated\Event.js133814029570270111 0
 38D:\my-works\node_modules\lmdb\index.js133814037631789277 0
 112D:\my-works\node_modules\@parcel\packager-svg\node_modules\@parcel\utils\test\input\sourcemap\source-root.js.map133814037693620369 0
@@ -8199,7 +8198,6 @@
 49D:\my-works\node_modules\cssstyle\MIT-LICENSE.txt133814029519316218 0
 75D:\my-works\node_modules\@parcel\package-manager\node_modules\color-convert133814037662839573 1
 41D:\my-works\node_modules\ecc-jsbn\test.js133814029517147148 0
-39D:\my-works\dist\index.d9a00248.css.map133814876750089633 0
 89D:\my-works\node_modules\@parcel\transformer-js\node_modules\semver\classes\comparator.js133814037656628083 0
 94D:\my-works\node_modules\@parcel\node-resolver-core\node_modules\@parcel\workers\src\Worker.js133814037670854180 0
 43D:\my-works\node_modules\ecc-jsbn\lib\ec.js133814029520354577 0
@@ -13701,7 +13699,6 @@
 88D:\my-works\node_modules\@parcel\packager-svg\node_modules\@parcel\utils\src\debounce.js133814037666736313 0
 90D:\my-works\node_modules\@parcel\packager-svg\node_modules\@parcel\utils\src\DefaultMap.js133814037667011853 0
 99D:\my-works\node_modules\@parcel\packager-svg\node_modules\@parcel\utils\src\dependency-location.js133814037667840558 0
-35D:\my-works\dist\index.d9a00248.css133814876750059634 0
 100D:\my-works\node_modules\@parcel\packager-svg\node_modules\@parcel\utils\src\generateBuildMetrics.js133814037668277994 0
 61D:\my-works\node_modules\.bin\download-msgpackr-prebuilds.cmd133814037704835694 0
 99D:\my-works\node_modules\@parcel\packager-svg\node_modules\@parcel\utils\src\generateCertificate.js133814037668484535 0
@@ -17112,11 +17109,10 @@
 44D:\my-works\dist\direction_left.90ab2cd8.png133814033505879883 0
 43D:\my-works\dist\footer_icon02.12be924b.jpg133814033505879883 0
 43D:\my-works\dist\footer_icon03.d766e703.jpg133814033505879883 0
-35D:\my-works\dist\index.5cfb13f9.css133814838582338473 0
+35D:\my-works\dist\index.5cfb13f9.css133814802052570124 0
 35D:\my-works\dist\index.721d332d.css133814831995475153 0
-34D:\my-works\dist\index.b833c774.js133814837183474814 0
-34D:\my-works\dist\index.e17a6aba.js133814876750089633 0
-27D:\my-works\dist\index.html133814876750049631 0
+34D:\my-works\dist\index.b833c774.js133814793834891026 0
+27D:\my-works\dist\index.html133814831995455140 0
 25D:\my-works\dist\index.js133814033505774801 0
 33D:\my-works\dist\main.c971f1f8.js133814033505720680 0
 47D:\my-works\dist\recommond_slide02.d00dab3b.jpg133814033505879883 0
@@ -17139,8 +17135,6 @@
 42D:\my-works\dist\with_slide04.f1db27c2.jpg133814033505879883 0
 22D:\my-works\dist\work3133814033505594639 1
 22D:\my-works\dist\work6133814033505604629 1
-34D:\my-works\dist\work6.518cfa73.js133814876750079645 0
-38D:\my-works\dist\work6.518cfa73.js.map133814876750129638 0
 22D:\my-works\dist\work7133814033505614625 1
 38D:\my-works\dist\work7.8dd4d1ca.js.map133814788070465775 0
 34D:\my-works\dist\work8.5f252e2f.js133814831995455140 0
