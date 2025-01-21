@@ -1,4 +1,3 @@
-// 360도 이미지 보기 기능 만들기
 const make360Viewer = ($target)=>{
     // 필요한 변수들 선언
     let isDragging = false; // 드래그 중인지 체크
@@ -8,15 +7,16 @@ const make360Viewer = ($target)=>{
     const frameCount = parseInt($target.dataset.viewerNum);
     const containerWidth = $target.clientWidth; // 컨테이너 너비
     const oneSection = containerWidth / frameCount; // 한 섹션당 너비
+    // 연산 함수
+    function mod(n, m) {
+        return (n % m + m) % m;
+    }
     // 드래그할 때 섹션 업데이트하기
     function updateFrame(moveDistance) {
         // 원래 섹션 값 구하기
         const tempSection = Math.floor(Math.abs(moveDistance) / oneSection);
         // 현재 섹션 계산하기
         let nowSection;
-        function mod(n, m) {
-            return (n % m + m) % m;
-        }
         if (moveDistance < 0) nowSection = mod(beforeSection + tempSection, frameCount);
         else nowSection = mod(beforeSection - tempSection, frameCount);
         console.log("\uB4DC\uB798\uADF8 \uC911>", {
@@ -184,8 +184,7 @@ const makeTabComponent = ($container)=>{
     function cleanup() {
         // 이벤트 정리
         events.forEach((handler, element)=>{
-            if (element === window) element.removeEventListener('hashchange', handler);
-            else element.removeEventListener('click', handler);
+            element.removeEventListener('click', handler);
         });
         events.clear();
     }
