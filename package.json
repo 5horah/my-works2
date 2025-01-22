@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "work6": "parcel work6/index.html --host localhost",
-    "work7": "parcel work7/index.html --host localhost"
+    "work7": "parcel work7/index.html --host localhost",
+    "work8": "parcel work8/index.html --host localhost"
   },
   "keywords": [],
   "author": "",

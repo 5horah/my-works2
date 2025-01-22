@@ -306,7 +306,6 @@ const startTabs = () => {
 // 페이지 로드되면 시작!
 window.addEventListener('load', () => {
     startTabs();
-    
     start360Viewer();
     
     // 탭 버튼에 360 뷰어 재시작 이벤트 추가
