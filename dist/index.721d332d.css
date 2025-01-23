@@ -25,7 +25,8 @@
   display: block;
 }
 
-[data-product-viewer] .viewer-loading {
+.viewer-loading {
+  background-color: var(--viewer-background, #fff);
   justify-content: center;
   align-items: center;
   width: 100%;

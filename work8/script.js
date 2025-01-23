@@ -1,317 +1,283 @@
-const viewerStates = new Map();
+//이미지 캐싱 및 로딩
+const imageCache = new Map()
 
-const make360Viewer = ($target) => {
-    // 상태 관리를 위한 변수들
-    let isDragging = false;     
-    let dragStartX = 0;         
-    let currentFrame = 0;       
-    let beforeSection = 0;      
-    let canvas = null;          
-    let ctx = null;            
-    const images = [];          
-    const frameCount = parseInt($target.dataset.viewerNum);
+const loadImage = async (url) => {
+  if (imageCache.has(url)) return imageCache.get(url)
 
-    function renderFrame() {
-        // Check if context exists
-        if (!ctx || !images[currentFrame]) return;
-        
-        const img = images[currentFrame];
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+  const img = await new Promise((resolve, reject) => {
+    const image = new Image()
+    image.onload = () => resolve(image)
+    image.onerror = reject
+    image.src = url
+  })
 
-        const backgroundColor = getComputedStyle($target).getPropertyValue('--viewer-background').trim();
-        ctx.fillStyle = backgroundColor || '#ffffff';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-        
-        const scale = Math.min(
-            canvas.width / img.height,
-            canvas.height / img.width
-        );
-        
-        const x = (canvas.width - img.width * scale) / 2;
-        const y = (canvas.height - img.height * scale) / 2;
-        
-        ctx.drawImage(img, x, y, img.width * scale, img.height * scale);
-    }
-
-    function setupCanvas() {
-        if (!canvas) return;
-        
-        const rect = $target.getBoundingClientRect();
-        canvas.width = rect.width || 300;
-        canvas.height = rect.height || 300;
-        ctx = canvas.getContext('2d', { alpha: false });
-        ctx.imageSmoothingEnabled = true;
-    }
-
-    async function loadImages() {
-        await setupCanvas();
-        const frameCountPad = parseInt($target.dataset.viewerNumPad);
-        const baseImageUrl = $target.dataset.viewerImage;
-        const extension = $target.dataset.viewerImageExtension;
-    
-        // Create loading UI outside canvas
-        const loadingDiv = document.createElement('div');
-        loadingDiv.className = 'viewer-loading';
-        loadingDiv.textContent = 'Loading images...';
-        $target.insertBefore(loadingDiv, canvas);
-    
-        // Hide canvas during loading
-        canvas.style.visibility = 'hidden';
-    
-        try {
-            const imageBuffer = new Array(frameCount);
-            const promises = Array.from({ length: frameCount }, (_, i) => {
-                return new Promise((resolve, reject) => {
-                    const img = new Image();
-                    const paddedIndex = String(i + 1).padStart(frameCountPad, '0');
-                    const imageUrl = `${baseImageUrl}${paddedIndex}.${extension}`;
-                    
-                    img.onload = () => {
-                        imageBuffer[i] = img;
-                        loadingDiv.textContent = `Loading... ${Math.round(((i + 1)/frameCount) * 100)}%`;
-                        resolve();
-                    };
-                    
-                    img.onerror = (error) => reject(new Error(`Failed to load image: ${imageUrl}`));
-                    img.src = imageUrl;
-                });
-            });
-    
-            await Promise.all(promises);
-            // Copy buffer to images array at once
-            images.splice(0, images.length, ...imageBuffer);
-            
-            loadingDiv.remove();
-            canvas.style.visibility = 'visible';
-            
-            if (ctx) {
-                renderFrame();
-            }
-        } catch (error) {
-            console.error('Image loading failed:', error);
-            loadingDiv.textContent = 'Failed to load images';
-        }
-    }
-
-    function updateFrame(moveDistance) {
-        // 원래 섹션 값 구하기
-        const oneSection = canvas.width / frameCount;
-        const tempSection = Math.floor(Math.abs(moveDistance) / oneSection);
-        
-        // 현재 섹션 계산
-        const nowSection = moveDistance < 0 
-            ? ((beforeSection + tempSection) % frameCount + frameCount) % frameCount
-            : ((beforeSection - tempSection) % frameCount + frameCount) % frameCount;
-        
-        if (currentFrame !== nowSection) {
-            currentFrame = nowSection;
-            renderFrame();
-        }
-
-        console.log('드래그 중>', {
-            움직인거리: moveDistance,
-            임시섹션: tempSection,
-            현재섹션: nowSection,
-            이전섹션: beforeSection
-        });
-    }
-    
-    // 마우스 이벤트 핸들러
-    function mouseStart(e) {
-        isDragging = true;
-        dragStartX = e.clientX;
-        console.log('마우스 시작! x좌표:', dragStartX, '이전섹션:', beforeSection);
-    }
-    
-    function mouseMove(e) {
-        if (!isDragging) return;
-        const moveDistance = e.clientX - dragStartX;
-        updateFrame(moveDistance);
-    }
-    
-    // 터치 이벤트 핸들러
-    function touchStart(e) {
-        isDragging = true;
-        dragStartX = e.touches[0].clientX;
-        console.log('마우스 시작! x좌표:', dragStartX, '이전섹션:', beforeSection);
-    }
-    
-    function touchMove(e) {
-        if (!isDragging) return;
-        e.preventDefault();
-        e.stopPropagation();
-        const moveDistance = e.touches[0].clientX - dragStartX;
-        updateFrame(moveDistance);
-    }
-    
-    function dragEnd() {
-        if (!isDragging) return;
-        isDragging = false;
-        beforeSection = currentFrame;
-        console.log('끝! 마지막섹션:', beforeSection);
-    }
-    
-    function addEvents() {
-        canvas.addEventListener('mousedown', mouseStart);
-        canvas.addEventListener('touchstart', touchStart, { passive: false });
-        window.addEventListener('mousemove', mouseMove);
-        window.addEventListener('touchmove', touchMove, { passive: false });
-        window.addEventListener('mouseup', dragEnd);
-        window.addEventListener('touchend', dragEnd);
-        window.addEventListener('mouseleave', dragEnd);
-    }
-    
-    function removeEvents() {
-        canvas.removeEventListener('mousedown', mouseStart);
-        canvas.removeEventListener('touchstart', touchStart);
-        window.removeEventListener('mousemove', mouseMove);
-        window.removeEventListener('touchmove', touchMove);
-        window.removeEventListener('mouseup', dragEnd);
-        window.removeEventListener('touchend', dragEnd);
-        window.removeEventListener('mouseleave', dragEnd);
-    }
-    
-    // 초기화
-    function init() {
-        $target.innerHTML = '';
-        canvas = document.createElement('canvas');
-        $target.appendChild(canvas);
-        
-        setupCanvas();
-        loadImages().catch(console.error);
-        addEvents();
-        
-        // Store cleanup function
-        $target._viewer = {
-            renderFrame,
-            cleanup: () => {
-                removeEvents();
-                viewerStates.delete($target);
-            }
-        };
-    }
-    
-    init();
-    return removeEvents;
-};
-
-// 360도 뷰어 시작
-const start360Viewer = () => {
-    const $viewers = document.querySelectorAll("[data-product-viewer]");
-    $viewers.forEach($viewer => make360Viewer($viewer));
-};
-
-// 탭 기능 만들기
-const makeTabComponent = ($container) => {
-    // 필요한 변수들 선언
-    const events = new Map();  // 이벤트 모아두기
-    
-    // 탭 요소들 찾기
-    const $tabButtons = $container.querySelectorAll('[data-tab-button]');
-    const $tabContents = $container.querySelectorAll('[data-tab-content]');
-    
-    // 시작할 때 활성화할 탭 찾기
-    function getStartTab() {      
-        return $container.getAttribute('data-active-tab') || '0';
-    }
-    
-    // 탭 상태 업데이트하기
-    function updateTab(selectedId) {
-        // 버튼들 상태 변경
-        $tabButtons.forEach(($button) => {
-            const isActive = $button.getAttribute('data-tab-button') === selectedId;
-            $button.setAttribute('aria-selected', isActive.toString());
-            $button.setAttribute('data-active', isActive.toString());
-        });
-        
-        // 내용들 상태 변경
-        $tabContents.forEach(($content) => {
-            const isActive = $content.getAttribute('data-tab-content') === selectedId;
-            $content.setAttribute('data-active', isActive.toString());
-        });
-        
-        // 컨테이너에도 현재 탭 표시
-        $container.setAttribute('data-active-tab', selectedId);
-    }
-        
-    
-    // 처음 시작할 때 설정하기
-    function setup() {
-        // 기본 상태 설정
-        updateTab(getStartTab());
-        
-        // 접근성 속성 추가
-        $container.setAttribute('role', 'tablist');
-        $tabButtons.forEach(($button) => {
-            $button.setAttribute('role', 'tab');
-            $button.setAttribute('aria-selected', 'false');
-        });
-        $tabContents.forEach(($content) => {
-            $content.setAttribute('role', 'tabpanel');
-        });
-        
-        // 탭 버튼 클릭 이벤트
-        $tabButtons.forEach(($button) => {
-            const clickHandler = () => {
-                const index = $button.getAttribute('data-tab-button');
-                updateTab(index);
-                if ($button.id) {
-                    history.replaceState(null, '', `#${$button.id}`);
-                }
-
-            };
-            
-            $button.addEventListener('click', clickHandler);
-            events.set($button, clickHandler);
-        });
-        
-    }
-    
-    // 정리하기
-    function cleanup() {
-        
-        // 이벤트 정리
-        events.forEach((handler, element) => {
-            element.removeEventListener('click', handler);
-        });
-        events.clear();
-    }
-    
-    // 시작!
-    setup();
-    
-    // 정리하는 함수 돌려주기
-    return cleanup;
+  imageCache.set(url, img)
+  return img
 }
 
-// 페이지에서 탭 시작하기
-const startTabs = () => {
-    // 이전에 있던 탭 정리하기
-    if (window.tabCleanups) {
-        window.tabCleanups.forEach(cleanup => cleanup());
+class Viewer360 {
+  constructor(target) {
+    this.target = target
+    this.images = []
+    this.currentFrame = 0
+    this.previousSection = 0
+    this.isDragging = false
+    this.dragStartX = 0
+
+    this.config = {
+      numFrames: parseInt(target.dataset.viewerNum || "0"),
+      numPadding: parseInt(target.dataset.viewerNumPad || "0"),
+      baseImageUrl: target.dataset.viewerImage || "",
+      imageExtension: target.dataset.viewerImageExtension || "",
+      backgroundColor:
+        getComputedStyle(target)
+          .getPropertyValue("--viewer-background")
+          .trim() || "#ffffff",
     }
-    
-    // 탭 컨테이너 찾아서 새로 시작하기
-    const $containers = document.querySelectorAll('[data-tab-container]');
-    const cleanups = Array.from($containers).map(
-        ($container) => makeTabComponent($container)
-    );
-    
-    // 나중에 정리할 수 있게 저장해두기
-    window.tabCleanups = cleanups;
-    return cleanups;
 
-};
+    this.canvas = document.createElement("canvas")
+    this.ctx = this.canvas.getContext("2d", { alpha: false })
 
-// 페이지 로드되면 시작!
-window.addEventListener('load', () => {
-    startTabs();
-    start360Viewer();
-    
-    // 탭 버튼에 360 뷰어 재시작 이벤트 추가
-    document.querySelectorAll('[data-tab-button]').forEach(button => {
-        button.addEventListener('click', () => {
-            start360Viewer();
-        });
-    });
-});
+    this.init()
+  }
+
+  async init() {
+    this.target.innerHTML = ""
+    this.target.appendChild(this.canvas)
+    this.setupCanvas()
+    await this.loadImages()
+    this.bindEvents()
+    this.setupResizeHandler()
+  }
+
+  setupCanvas() {
+    const rect = this.target.getBoundingClientRect()
+    this.canvas.width = rect.width
+    this.canvas.height = rect.height
+    this.ctx.imageSmoothingEnabled = true
+    this.renderFrame()
+  }
+
+  async loadImages() {
+    const loadingDiv = this.createLoadingUI()
+
+    try {
+      await Promise.all(
+        Array.from({ length: this.config.numFrames }, (_, i) =>
+          this.loadSingleImage(i, loadingDiv),
+        ),
+      )
+
+      loadingDiv.remove()
+      this.target.classList.add("viewer-loaded")
+      this.renderFrame()
+    } catch (error) {
+      console.error("Failed to load images:", error)
+    }
+  }
+
+  async loadSingleImage(index, loadingDiv) {
+    const url = `${this.config.baseImageUrl}${String(index + 1).padStart(this.config.numPadding, "0")}.${this.config.imageExtension}`
+    const img = await loadImage(url)
+    this.images[index] = img
+
+    if (loadingDiv) {
+      loadingDiv.textContent = `Loading... ${Math.round(((index + 1) / this.config.numFrames) * 100)}%`
+    }
+
+    return img
+  }
+
+  createLoadingUI() {
+    const div = document.createElement("div")
+    div.className = "viewer-loading"
+    div.textContent = "Loading images..."
+    this.target.appendChild(div)
+    return div
+  }
+
+  renderFrame() {
+    if (!this.images[this.currentFrame]) return
+
+    const img = this.images[this.currentFrame]
+    const { canvas, ctx } = this
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+    ctx.fillStyle = this.config.backgroundColor
+    ctx.fillRect(0, 0, canvas.width, canvas.height)
+
+    const scale = Math.min(canvas.width / img.width, canvas.height / img.height)
+    const x = (canvas.width - img.width * scale) / 2
+    const y = (canvas.height - img.height * scale) / 2
+
+    ctx.drawImage(img, x, y, img.width * scale, img.height * scale)
+  }
+
+  updateFrame(moveDistance) {
+    const sectionWidth = this.canvas.width / this.config.numFrames
+    const tempSection = Math.floor(Math.abs(moveDistance) / sectionWidth)
+
+    const currentSection =
+      moveDistance < 0
+        ? (((this.previousSection + tempSection) % this.config.numFrames) +
+            this.config.numFrames) %
+          this.config.numFrames
+        : (((this.previousSection - tempSection) % this.config.numFrames) +
+            this.config.numFrames) %
+          this.config.numFrames
+
+    if (this.currentFrame !== currentSection) {
+      this.currentFrame = currentSection
+      this.renderFrame()
+    }
+  }
+
+  handleDragStart = (e) => {
+    this.isDragging = true
+    this.dragStartX = e.clientX
+  }
+
+  handleTouchStart = (e) => {
+    this.isDragging = true
+    this.dragStartX = e.touches[0].clientX
+  }
+
+  handleDragMove = (e) => {
+    if (!this.isDragging) return
+    this.updateFrame(e.clientX - this.dragStartX)
+  }
+
+  handleTouchMove = (e) => {
+    if (!this.isDragging) return
+    e.preventDefault()
+    e.stopPropagation()
+    this.updateFrame(e.touches[0].clientX - this.dragStartX)
+  }
+
+  handleDragEnd = () => {
+    if (!this.isDragging) return
+    this.isDragging = false
+    this.previousSection = this.currentFrame
+  }
+
+  bindEvents() {
+    this.canvas.addEventListener("mousedown", this.handleDragStart)
+    this.canvas.addEventListener("touchstart", this.handleTouchStart)
+    window.addEventListener("mousemove", this.handleDragMove)
+    window.addEventListener("touchmove", this.handleTouchMove)
+    window.addEventListener("mouseup", this.handleDragEnd)
+    window.addEventListener("touchend", this.handleDragEnd)
+    window.addEventListener("mouseleave", this.handleDragEnd)
+  }
+
+  setupResizeHandler() {
+    let resizeTimer
+    window.addEventListener("resize", () => {
+      clearTimeout(resizeTimer)
+      resizeTimer = setTimeout(() => this.setupCanvas(), 150)
+    })
+  }
+
+  destroy() {
+    this.canvas.removeEventListener("mousedown", this.handleDragStart)
+    this.canvas.removeEventListener("touchstart", this.handleTouchStart)
+    window.removeEventListener("mousemove", this.handleDragMove)
+    window.removeEventListener("touchmove", this.handleTouchMove)
+    window.removeEventListener("mouseup", this.handleDragEnd)
+    window.removeEventListener("touchend", this.handleDragEnd)
+    window.removeEventListener("mouseleave", this.handleDragEnd)
+  }
+}
+
+class TabComponent {
+  constructor(container) {
+    this.container = container
+    this.events = new Map()
+    this.buttons = container.querySelectorAll("[data-tab-button]")
+    this.contents = container.querySelectorAll("[data-tab-content]")
+    this.init()
+  }
+
+  init() {
+    this.setupAccessibility()
+    this.updateTab(this.container.getAttribute("data-active-tab") || "0")
+    this.bindEvents()
+  }
+
+  setupAccessibility() {
+    this.container.setAttribute("role", "tablist")
+    this.buttons.forEach((button) => {
+      button.setAttribute("role", "tab")
+      button.setAttribute("aria-selected", "false")
+    })
+    this.contents.forEach((content) => {
+      content.setAttribute("role", "tabpanel")
+    })
+  }
+
+  updateTab(selectedId) {
+    this.buttons.forEach((button) => {
+      const isActive = button.getAttribute("data-tab-button") === selectedId
+      button.setAttribute("aria-selected", String(isActive))
+      button.setAttribute("data-active", String(isActive))
+    })
+
+    this.contents.forEach((content) => {
+      const isActive = content.getAttribute("data-tab-content") === selectedId
+      content.setAttribute("data-active", String(isActive))
+    })
+
+    this.container.setAttribute("data-active-tab", selectedId)
+  }
+
+  bindEvents() {
+    this.buttons.forEach((button) => {
+      const handler = () => {
+        const index = button.getAttribute("data-tab-button")
+        this.updateTab(index)
+        if (button.id) {
+          history.replaceState(null, "", `#${button.id}`)
+        }
+      }
+
+      button.addEventListener("click", handler)
+      this.events.set(button, handler)
+    })
+  }
+
+  destroy() {
+    this.events.forEach((handler, element) => {
+      element.removeEventListener("click", handler)
+    })
+    this.events.clear()
+  }
+}
+
+const initializeViewers = () =>
+  Array.from(document.querySelectorAll("[data-product-viewer]")).map(
+    (element) => new Viewer360(element),
+  )
+
+const initializeTabs = () =>
+  Array.from(document.querySelectorAll("[data-tab-container]")).map(
+    (element) => new TabComponent(element),
+  )
+
+window.addEventListener("load", () => {
+  const viewers = initializeViewers()
+  initializeTabs()
+
+  const activeTab = document.querySelector(
+    '[data-tab-content][data-active="true"]',
+  )
+  if (activeTab) {
+    new Viewer360(activeTab.querySelector("[data-product-viewer]"))
+  }
+
+  document.querySelectorAll("[data-tab-button]").forEach((button) => {
+    button.addEventListener("click", () => {
+      viewers.forEach((viewer) => viewer.destroy())
+      initializeViewers()
+    })
+  })
+})

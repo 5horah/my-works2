@@ -1,7 +1,7 @@
 :root {
     /* 뷰어 기본 설정 */
-    --viewer-width: 100%;        /* 기본 너비 */
-    --viewer-height: 100%;       /* 기본 높이 (정사각형) */
+    --viewer-width: 100%;        
+    --viewer-height: 100%;       
     --viewer-background: #f5f5f5;
     
     /* 로딩 UI 관련 */
@@ -12,10 +12,10 @@
 
 [data-product-viewer] {
     position: relative;
-    width: var(--viewer-width, 100%);          /* 기본값 추가 */
-    height: var(--viewer-height, 100%);        /* 기본값 추가 */
+    width: var(--viewer-width, 100%);         
+    height: var(--viewer-height, 100%);      
     margin: 0 auto;
-    background: var(--viewer-background, #fff); /* 기본값 추가 */
+    background: var(--viewer-background, #fff); 
     cursor: ew-resize;
     touch-action: none;
 }
@@ -28,7 +28,7 @@
     background-color: var(--viewer-background, #fff);
 }
 
-[data-product-viewer] .viewer-loading {
+.viewer-loading {
     position: absolute; 
     top: 0;
     left: 0;
@@ -37,6 +37,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: var(--viewer-background, #fff);
 }
 
 /* tab */
