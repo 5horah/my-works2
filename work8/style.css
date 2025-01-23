@@ -17,7 +17,7 @@
     margin: 0 auto;
     background: var(--viewer-background, #fff); 
     cursor: ew-resize;
-    touch-action: none;
+    touch-action: pan-y; 
 }
 
 [data-product-viewer] canvas {

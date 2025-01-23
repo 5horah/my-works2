@@ -1,4 +1,3 @@
-//이미지 캐싱 및 로딩
 const imageCache = new Map();
 const loadImage = async (url)=>{
     if (imageCache.has(url)) return imageCache.get(url);
@@ -102,6 +101,8 @@ class Viewer360 {
     handleTouchStart = (e)=>{
         this.isDragging = true;
         this.dragStartX = e.touches[0].clientX;
+        this.dragStartY = e.touches[0].clientY;
+        this.isScrolling = undefined;
     };
     handleDragMove = (e)=>{
         if (!this.isDragging) return;
@@ -109,9 +110,17 @@ class Viewer360 {
     };
     handleTouchMove = (e)=>{
         if (!this.isDragging) return;
-        e.preventDefault();
-        e.stopPropagation();
-        this.updateFrame(e.touches[0].clientX - this.dragStartX);
+        const touchX = e.touches[0].clientX;
+        const touchY = e.touches[0].clientY;
+        const deltaX = touchX - this.dragStartX;
+        const deltaY = touchY - this.dragStartY;
+        if (typeof this.isScrolling === "undefined") this.isScrolling = Math.abs(deltaY) > Math.abs(deltaX);
+        if (this.isScrolling) return;
+        else {
+            e.preventDefault();
+            e.stopPropagation();
+            this.updateFrame(deltaX);
+        }
     };
     handleDragEnd = ()=>{
         if (!this.isDragging) return;
